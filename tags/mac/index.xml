@@ -20,21 +20,5 @@
       <description>Finder是mac的资源管理器，它的使用和配置与Windows区别还是挺多。习惯了Windows的使用使得Finder使用总觉得有些不便。配置好Finder能很大幅度提高我们的工作效率。 我会从遇到的问题着手，查找可以解决问题提高效率的解决方案。 Finder显示设置 显示隐藏文件夹 Mac系统Finder中的 /usr、/etc等文件夹都是隐藏文件，如果不进行设置用户是无法见到的。估计是因为mac用户并</description>
     </item>
     
-    <item>
-      <title>Nguyen Van Minh</title>
-      <link>https://minhkma.github.io/blog/2018-01/nguyen-van-minh/</link>
-      <pubDate>Tue, 30 Jan 2018 15:04:48 +0800</pubDate>
-      
-      <guid>https://minhkma.github.io/blog/2018-01/nguyen-van-minh/</guid>
-      <description>Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.
-Direct exchange được sử dụng trong trường hợp bạn muốn phân biệt các messages published cho cùng một exchange bằng cách sử dụng một chuỗi định danh đơn giản.
-Exchange mặc định của AMQP brokers phải cung cấp cho direct exchange là amq.direct.
- SCENARIO 1  Exchange: pdf_events Queue A: create_pdf_queue Binding key between exchange (pdf_events) and Queue A (create_pdf_queue): pdf_create  SCENARIO 2
- Exchange: pdf_events Queue B: pdf_log_queue Binding key between exchange (pdf_events) and Queue B (pdf_log_queue): pdf_log  Ví dụ:
-Một message với routing key pdf_log được gửi từ exchange pdf_events. Message đó được định tuyến tới pdf_log_queue vì outing key (pdf_log) khớp với binding key (pdf_log).
-Nếu message routing key không khớp với binding key nào thì sẽ bị hủy bỏ.
-  Default exchange Exchange mặc định là một pre-declared direct exchange không có định danh(tên) thương được biểu diễn bởi một chuỗi rỗng &amp;quot;&amp;quot;.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -94,6 +94,12 @@
   </url>
   
   <url>
+    <loc>https://minhkma.github.io/categories/broker/</loc>
+    <lastmod>2018-01-30T15:04:48+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://minhkma.github.io/tags/bug/</loc>
     <lastmod>2018-03-20T16:46:17+08:00</lastmod>
     <priority>0</priority>
@@ -101,12 +107,19 @@
   
   <url>
     <loc>https://minhkma.github.io/categories/</loc>
+    <lastmod>2018-01-30T15:04:48+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/tags/css/</loc>
     <lastmod>2018-08-13T00:14:19+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/tags/demo/</loc>
+    <lastmod>2018-01-30T15:04:48+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -167,6 +180,18 @@
   <url>
     <loc>https://minhkma.github.io/tags/nested-list/</loc>
     <lastmod>2018-03-20T16:46:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/series/rabbbitmq/</loc>
+    <lastmod>2018-01-30T15:04:48+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/tags/rabbitmq/</loc>
+    <lastmod>2018-01-30T15:04:48+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -275,12 +300,6 @@
   <url>
     <loc>https://minhkma.github.io/tags/%E8%B8%A2%E8%B8%8F%E8%88%9E/</loc>
     <lastmod>2018-05-24T20:22:13+08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://minhkma.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2018-01-30T15:04:48+08:00</lastmod>
     <priority>0</priority>
   </url>
   

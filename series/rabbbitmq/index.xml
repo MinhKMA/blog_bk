@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rabbbitmq on MinhKMA</title>
+    <link>https://minhkma.github.io/series/rabbbitmq/</link>
+    <description>Recent content in Rabbbitmq on MinhKMA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zn-Hans</language>
+    <lastBuildDate>Tue, 30 Jan 2018 15:04:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://minhkma.github.io/series/rabbbitmq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nguyen Van Minh</title>
+      <link>https://minhkma.github.io/blog/2018-01/nguyen-van-minh/</link>
+      <pubDate>Tue, 30 Jan 2018 15:04:48 +0800</pubDate>
+      
+      <guid>https://minhkma.github.io/blog/2018-01/nguyen-van-minh/</guid>
+      <description>Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.
+Direct exchange được sử dụng trong trường hợp bạn muốn phân biệt các messages published cho cùng một exchange bằng cách sử dụng một chuỗi định danh đơn giản.
+Exchange mặc định của AMQP brokers phải cung cấp cho direct exchange là amq.direct.
+ SCENARIO 1  Exchange: pdf_events Queue A: create_pdf_queue Binding key between exchange (pdf_events) and Queue A (create_pdf_queue): pdf_create  SCENARIO 2
+ Exchange: pdf_events Queue B: pdf_log_queue Binding key between exchange (pdf_events) and Queue B (pdf_log_queue): pdf_log  Ví dụ:
+Một message với routing key pdf_log được gửi từ exchange pdf_events. Message đó được định tuyến tới pdf_log_queue vì outing key (pdf_log) khớp với binding key (pdf_log).
+Nếu message routing key không khớp với binding key nào thì sẽ bị hủy bỏ.
+  Default exchange Exchange mặc định là một pre-declared direct exchange không có định danh(tên) thương được biểu diễn bởi một chuỗi rỗng &amp;quot;&amp;quot;.</description>
+    </item>
+    
+  </channel>
+</rss>

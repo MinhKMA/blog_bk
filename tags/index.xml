@@ -39,6 +39,15 @@
     </item>
     
     <item>
+      <title>Demo</title>
+      <link>https://minhkma.github.io/tags/demo/</link>
+      <pubDate>Tue, 30 Jan 2018 15:04:48 +0800</pubDate>
+      
+      <guid>https://minhkma.github.io/tags/demo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Docker</title>
       <link>https://minhkma.github.io/tags/docker/</link>
       <pubDate>Thu, 02 Aug 2018 15:49:22 +0800</pubDate>
@@ -107,6 +116,15 @@
       <pubDate>Tue, 20 Mar 2018 16:46:17 +0800</pubDate>
       
       <guid>https://minhkma.github.io/tags/nested-list/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rabbitmq</title>
+      <link>https://minhkma.github.io/tags/rabbitmq/</link>
+      <pubDate>Tue, 30 Jan 2018 15:04:48 +0800</pubDate>
+      
+      <guid>https://minhkma.github.io/tags/rabbitmq/</guid>
       <description></description>
     </item>
     
@@ -206,15 +224,6 @@
       <pubDate>Thu, 24 May 2018 20:22:13 +0800</pubDate>
       
       <guid>https://minhkma.github.io/tags/%E8%B8%A2%E8%B8%8F%E8%88%9E/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>软件安装</title>
-      <link>https://minhkma.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Tue, 30 Jan 2018 15:04:48 +0800</pubDate>
-      
-      <guid>https://minhkma.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</guid>
       <description></description>
     </item>
     
