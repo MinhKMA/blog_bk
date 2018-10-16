@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zn-Hans">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1" />
+  <meta name="author" content="MinhKMA">
+  <meta name="description" content="Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.
+Direct exchange được sử dụng trong trường hợp bạn muốn phân biệt các messages published cho cùng một exchange bằng cách sử dụng một chuỗi định danh đơn giản.
+Exchange mặc định của AMQP brokers phải cung cấp cho direct exchange là amq.direct.
+ SCENARIO 1  Exchange: pdf_events Queue A: create_pdf_queue Binding key between exchange (pdf_events) and Queue A (create_pdf_queue): pdf_create  SCENARIO 2
+ Exchange: pdf_events Queue B: pdf_log_queue Binding key between exchange (pdf_events) and Queue B (pdf_log_queue): pdf_log  Ví dụ:
+Một message với routing key pdf_log được gửi từ exchange pdf_events. Message đó được định tuyến tới pdf_log_queue vì outing key (pdf_log) khớp với binding key (pdf_log).
+Nếu message routing key không khớp với binding key nào thì sẽ bị hủy bỏ.
+  Default exchange Exchange mặc định là một pre-declared direct exchange không có định danh(tên) thương được biểu diễn bởi một chuỗi rỗng &quot;&quot;.">
+  
+  <meta property="og:title" content="Các loại Exchange trong RabbitMQ" />
+<meta property="og:description" content="Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.
+Direct exchange được sử dụng trong trường hợp bạn muốn phân biệt các messages published cho cùng một exchange bằng cách sử dụng một chuỗi định danh đơn giản.
+Exchange mặc định của AMQP brokers phải cung cấp cho direct exchange là amq.direct.
+ SCENARIO 1  Exchange: pdf_events Queue A: create_pdf_queue Binding key between exchange (pdf_events) and Queue A (create_pdf_queue): pdf_create  SCENARIO 2
+ Exchange: pdf_events Queue B: pdf_log_queue Binding key between exchange (pdf_events) and Queue B (pdf_log_queue): pdf_log  Ví dụ:
+Một message với routing key pdf_log được gửi từ exchange pdf_events. Message đó được định tuyến tới pdf_log_queue vì outing key (pdf_log) khớp với binding key (pdf_log).
+Nếu message routing key không khớp với binding key nào thì sẽ bị hủy bỏ.
+  Default exchange Exchange mặc định là một pre-declared direct exchange không có định danh(tên) thương được biểu diễn bởi một chuỗi rỗng &quot;&quot;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://minhkma.github.io/blog/2018-10/c%C3%A1c-lo%E1%BA%A1i-exchange-trong-rabbitmq/" /><meta property="article:published_time" content="2018-10-16T22:37:44&#43;07:00"/>
+<meta property="article:modified_time" content="2018-10-16T22:37:44&#43;07:00"/>
+
+
+
+  <title>
+  
+       Các loại Exchange trong RabbitMQ | MinhKMA 
+  
+  </title>
+
+  <link rel="canonical" href="https://minhkma.github.io/blog/2018-10/c%C3%A1c-lo%E1%BA%A1i-exchange-trong-rabbitmq/">
+
+  
+  
+
+  
+  <link href="https://minhkma.github.io/css/vendors-extensions/fontawesome/all.min.css" rel="stylesheet">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:300,400,500,600">
+  <link href="https://minhkma.github.io/css/font.css" rel="stylesheet"> 
+    
+  
+  <link href="https://minhkma.github.io/css/vendors/bootstrap4/bootstrap.min.css" rel="stylesheet">
+  <link href="https://minhkma.github.io/css/vendors-extensions/mdb/mdb.min.css" rel="stylesheet"> 
+  <link href="https://minhkma.github.io/css/vendors/mdb/style.min.css" rel="stylesheet"> 
+  <link href="https://minhkma.github.io/css/main.css" rel="stylesheet">
+
+
+  
+  <link rel="shortcut icon"
+  
+      href="https://minhkma.github.io/img/zheng.png"
+  
+  >
+
+
+  
+  
+
+  <style type="text/css">
+      @media (min-width: 800px) and (max-width: 850px) {
+              .navbar:not(.top-nav-collapse) {
+                  background: #1C2331!important;
+              }
+          }
+  </style>
+
+
+  
+    
+    <link rel="stylesheet" href="https://minhkma.github.io/js/vendors/katex/katex.min.css">
+  
+  
+
+  
+    
+    <link rel="stylesheet" href="https://minhkma.github.io/css/vendors/highlight/github-gist.css">
+  
+
+</head>
+
+  <body class="bg-light" data-spy="scroll" data-target="#page-scrollspy" data-offset="90">
+  
+    
+    
+
+    
+      
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container">
+
+      
+      <a class="navbar-brand" href="https://minhkma.github.io">
+          
+        <img class="avatar" src="https://minhkma.github.io/img/zheng.png" style="width: 40px!important;height: auto;"  class="d-inline-block align-top" alt="" >
+        
+        <strong> MinhKMA</strong>
+      </a>
+
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        
+        <ul class="navbar-nav mr-auto ">
+          <li class="nav-item ">
+            <a class="nav-link" href="https://minhkma.github.io">Home</a>
+          </li>
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://minhkma.github.io/blog/" >Blog  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://minhkma.github.io/moment/" >Moment  </a>
+            </li>
+          
+             
+            <li class="nav-item ">
+              <a class="nav-link" href="https://minhkma.github.io/about/" >About  </a>
+            </li>
+          
+          
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  
+ 
+      
+ 
+
+
+
+
+
+
+<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  
+
+  
+  
+  
+
+  
+  <div class="carousel-inner" role="listbox">
+    
+      
+
+        
+        <div class="carousel-item active">
+          <div class="view" style="background-image: url('https://minhkma.github.io/img/header-slides/raw_1515691746.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+              
+              
+              
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+      
+
+        
+        <div class="carousel-item">
+          <div class="view" style="background-image: url('https://minhkma.github.io/img/header-slides//raw_1515847341.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+            
+            <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+            
+
+            </div>
+            
+
+          </div>
+        </div>
+        
+      
+    
+
+  
+  </div>
+  
+
+  
+  <div class="carousel-content text-center white-text wow fadeIn">
+    <div class="row mx-0 headfont mt-3 pt-4">
+      
+      <div class="col-12 col-sm-5 align-middle">
+        <a href="https://minhkma.github.io">
+          
+            <img class="pull-right avatar avatar-md" src="https://minhkma.github.io/img/profile.jpg" alt="" >
+          
+        </a>
+      </div>
+      
+      <div class="col-12 col-sm-7 text-left pl-2">
+        <a href="https://minhkma.github.io">
+          <h1 class="mb-2 h1" style="font-weight: 300;" >
+            <strong>MinhKMA</strong>
+          </h1>
+        </a>
+        
+
+             
+        <div class="mt-2" style="font-size: 1rem; color: white;">
+            
+              <a href="https://github.com/MinhKMA" target="_blank" rel="noopener"><i class="fab fa-github pr-1" aria-hidden="true"></i></a>    
+            
+            
+              <a href="//linkedin.com/in/you" target="_blank" rel="noopener"><i class="fab fa-linkedin pr-1" aria-hidden="true"></i></a>
+            
+
+            
+              <a href="https://facebook.com/minhkma" target="_blank" rel="noopener"><i class="fab fa-facebook pr-1" aria-hidden="true"></i></a>
+            
+
+            
+            <a href="//google.com/you" target="_blank" rel="noopener"><i class="fab fa-google-plus pr-1" aria-hidden="true"></i></a>
+            
+
+            
+                <a href="https://twitter.com/minhkma" target="_blank" rel="noopener"><i class="fab fa-twitter pr-1" aria-hidden="true"></i></a>
+            
+
+            
+                <a href="//instagram.com/you" target="_blank" rel="noopener"><i class="fab fa-instagram pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+                <a href="//px500" target="_blank" rel="noopener"><i class="fab fa-500px pr-1" aria-hidden="true"></i></a>
+            
+    
+        
+            
+                <a href="mailto:nguyenvanminhkma@gmail.com"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
+            
+    
+            
+
+            
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  
+
+</div>
+  
+    
+
+    
+  
+  <main class="post-main-wrapper">
+    
+    
+    <div class="row">
+
+      
+
+      
+      <div class="col-md-10">
+      
+
+        
+        <div class="z-depth-1  post-wrapper white-bg single-post">
+
+          <div class="post-header text-center" >
+  <ul class="post-meta li-x">
+    
+      
+        <li><a href="https://minhkma.github.io/categories/rabbitmq"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> rabbitMQ </a></li>
+      
+    
+    
+      
+        <li><a href="https://minhkma.github.io/series/rabbitmq"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>rabbitMQ</a></li>
+      
+    
+  </ul>
+
+  <div class="px-4 post-heading">Các loại Exchange trong RabbitMQ</div>
+
+  <ul class="post-meta li-x mt-1">
+    
+      <li>Oct 16, 2018</li>
+    
+
+    
+      <li class="middot"></li>
+      <li>4 minutes read</li>
+    
+  </ul>
+  
+
+</div>
+
+
+          <div class="post-content markdown">
+            
+
+<h1 id="các-loại-exchange">Các loại Exchange</h1>
+
+<h2 id="direct-exchange">Direct Exchange</h2>
+
+<p>Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. <strong>A message goes to the queue(s) whose binding key exactly matches the routing key of the message.</strong></p>
+
+<p>Direct exchange được sử dụng trong trường hợp bạn muốn phân biệt các messages published cho cùng một exchange bằng cách sử dụng một chuỗi định danh đơn giản.</p>
+
+<p>Exchange mặc định của AMQP brokers phải cung cấp cho direct exchange là <code>amq.direct</code>.</p>
+
+<p><img src="https://i.imgur.com/2sjgr6H.png"></p>
+
+<ul>
+<li>SCENARIO 1
+
+<ul>
+<li>Exchange: pdf_events</li>
+<li>Queue A: create_pdf_queue</li>
+<li>Binding key between exchange (pdf_events) and Queue A (create_pdf_queue): pdf_create</li>
+</ul></li>
+
+<li><p>SCENARIO 2</p>
+
+<ul>
+<li>Exchange: pdf_events</li>
+<li>Queue B: pdf_log_queue</li>
+<li>Binding key between exchange (pdf_events) and Queue B (pdf_log_queue): pdf_log</li>
+</ul></li>
+
+<li><p>Ví dụ:</p>
+
+<p>Một message với routing key <code>pdf_log</code> được gửi từ exchange <code>pdf_events</code>. Message đó được định tuyến tới pdf_log_queue vì outing key (pdf_log) khớp với binding key (pdf_log).</p>
+
+<p>Nếu message routing key không khớp với binding key nào thì sẽ bị hủy bỏ.</p></li>
+</ul>
+
+<h2 id="default-exchange">Default exchange</h2>
+
+<p>Exchange mặc định là một pre-declared direct exchange không có định danh(tên) thương được biểu diễn bởi một chuỗi rỗng <code>&quot;&quot;</code>.</p>
+
+<p>Khi bạn sử dụng exchange mặc định, message của bạn được gửi đến queue có tên chính là routing key của message. Tất cả queue tự động được liên kết với exchange mặc định kèm với một routing key giống như tên của queue.</p>
+
+<h2 id="topic-exchange">Topic Exchange</h2>
+
+<p>Topic exchanges định tuyến các messages tới queues được trên đối chiếu, đối sánh ky tự (wildcard matches) giữa routing key và cái gì đó được gọi là mẫu định tuyến được chỉ định bởi queue binding. Messages được định tuyến tới một hoặc nhiều queues được trên một đối sánh giữa một routing key của message và this pattern.</p>
+
+<p>routing key phải là một danh sách của các từ(a list of words) phân cách bởi dấu chấm (.) ví dụ <code>agreements.us</code> và <code>agreements.eu.stockholm</code> trong trường hợp này xác định các thỏa thuận được thiết lập cho một công ty có văn phòng ở nhiều địa điểm khác nhau. routing patterns có thể chứa dấu hoa thị(&rdquo;<em>&rdquo;) để đối sánh một từ ở một vị trí cụ thể của routing key (ví dụ: một routing pattern của chuỗi &ldquo;agreements.</em>.<em>.b.</em>&rdquo; chỉ match routing keys ở từ đầu tiên là &ldquo;agreements&rdquo; và một từ thứ tứ là &ldquo;b&rdquo;). Ký tự thăng (#) cho biết match với zero hoặc nhiều từ hơn(ví dụ một routing pattern của &ldquo;agreements.eu.berlin.#&rdquo; matches với bất cứ routing keys bắt đầu với &ldquo;agreements.eu.berlin&rdquo;)</p>
+
+<p>consumers biểu diễn topic mà họ quan tâm như đăng kí để có một nguồn dữ liệu cho từng thẻ riêng biệt</p>
+
+<p>Consumers tạo ra một queue và thiết lập một binding với một với một mẫu định tuyến đã cho tới exchange. Tất cả message với một routing key khớp với routing pattern được định tuyến đến queue và ở đó đến khi consumers đến lấy message</p>
+
+<p>Mặc định của exchange AMQP brokers phải cung cấp cho  topic exchange là <code>amq.topic</code>.</p>
+
+<p><img src="https://i.imgur.com/ZlMqg0R.png"></p>
+
+<ul>
+<li><p>SCENARIO 1</p>
+
+<p>The image to the right show an example where consumer A is interested in all the agreements in Berlin.</p>
+
+<ul>
+<li>Exchange: agreements</li>
+<li>Queue A: berlin_agreements</li>
+<li>Routing pattern between exchange (agreements) and Queue A (berlin_agreements): agreements.eu.berlin.#</li>
+<li>Example of message routing key that matches: agreements.eu.berlin and agreements.eu.berlin.headstore</li>
+</ul></li>
+
+<li><p>SCENARIO 2
+Consumer B is interested in all the agreements.</p>
+
+<ul>
+<li>Exchange: agreements</li>
+<li>Queue B: all_agreements</li>
+<li>Routing pattern between exchange (agreements) and Queue B (all_agreements): agreements.#</li>
+<li>Example of message routing key that matches: agreements.eu.berlin and agreements.us
+￼</li>
+</ul></li>
+
+<li><p>SCENARIO 3
+Consumer C is interested in all agreements for European head stores.</p>
+
+<ul>
+<li>Exchange: agreements</li>
+<li>Queue C: headstore_agreements</li>
+<li>Routing pattern between exchange (agreements) and Queue C (headstore_agreements): agreements.eu.*.headstore</li>
+<li>Example of message routing keys that will match: agreements.eu.berlin.headstore and agreements.eu.stockholm.headstore</li>
+</ul></li>
+</ul>
+
+<p>Ví dụ:</p>
+
+<p>Một message có routing key <code>agreements.eu.berlin</code> được gửi tới exchange agreements. Message được đính tuyến đến queue <code>berlin_agreements</code> bởi vì routing pattern của &ldquo;agreements.eu.berlin.#&rdquo; match với bất kì routing key nào bắt đầu là &ldquo;agreements.eu.berlin&rdquo;. Tin nhắn cũng được định tuyến đến queue <code>all_agreements</code> vì routing key (agreements.eu.berlin) match routing pattern (agreements.#)</p>
+
+<h2 id="fanout-exchange">Fanout Exchange</h2>
+
+<p>Fanout copy và định tuyến một mesage nhận được tới tất cả queue được ràng buộc với nó.</p>
+
+<p>Fanout Exchange được dùng trong trường hợp khi một hoặc nhiều thông điệp được gửi tới một hoặc nhiều queues với nhiều consumers có thể xử lý cùng một message the o nhiều cách khác nhau.</p>
+
+<p>Mặc định là &ldquo;amq.fanout&rdquo;.</p>
+
+<p><img src="https://i.imgur.com/Zq7asE9.png"></p>
+
+<ul>
+<li>SCENARIO 1
+
+<ul>
+<li>Exchange: sport_news</li>
+<li>Queue A: Mobile client queue A</li>
+<li>Binding: Binging between the exchange (sport_news) and Queue A (Mobile client queue A)</li>
+</ul></li>
+</ul>
+
+<p>Ví dụ:</p>
+
+<p>Một mesage được gửi đến exchange <code>sport_news</code>. Message đó được định tuyến tới tất cả các queues (Queue A, Queue B, Queue C)</p>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-md-8">
+            
+              <div class="mb-5">
+                
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://minhkma.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://minhkma.github.io/tags/rabbitmq" role="button">rabbitMQ </a></li>
+      
+    
+  </div>
+</div>
+              </div>
+            
+            </div>
+            
+          </div>
+          
+
+          
+          <div class="row pt-3">
+            <div class="col-md-6">
+              
+            </div>
+            
+            <div class="col-md-6 text-right" >
+              
+            </div>
+          </div>
+
+          
+
+        </div>
+        
+
+      </div>
+      
+
+      
+	
+	
+	
+	
+		
+		
+		
+	
+
+		
+		<div class="col-md-2 pl-0">
+
+			
+			<div id="page-scrollspy" class="toc-nav">
+				
+				<ul class="nav nav-pills ml-0">
+					
+					<li class="nav-item pb-3 text-center">
+						<span class="font-weight-bold mb-2">- CATALOG - </span>
+					</li>
+
+					
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#c%c3%a1c-lo%e1%ba%a1i-exchange">
+												 Các loại Exchange
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#direct-exchange">
+												 Direct Exchange
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#default-exchange">
+												 Default exchange
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#topic-exchange">
+												 Topic Exchange
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+						
+						
+							
+								
+								
+									<ul class="nav">
+								
+									<ul class="nav">
+								
+								
+
+										<li class="nav-item">
+						 					<a class="nav-link" href="#fanout-exchange">
+												 Fanout Exchange
+											</a>
+										</li>
+						 
+								
+								
+									</ul>
+								
+									</ul>
+								
+							
+						
+				 
+
+				</ul>
+			</div>
+			
+
+		</div>
+		
+	
+
+    </div>
+    
+
+
+  </main>
+  
+
+
+    
+    
+
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+  
+  <div class="pb-2 mt-5 pt-5">
+    
+      <a href="https://github.com/MinhKMA " target="_blank" rel="noopener"><i class="fab fa-github mr-3" aria-hidden="true"></i></a>    
+    
+    
+      <a href="//linkedin.com/in/you" target="_blank" rel="noopener"><i class="fab fa-linkedin-in mr-3" aria-hidden="true"></i></a>
+    
+
+    
+      <a href="https://facebook.com/minhkma" target="_blank" rel="noopener"><i class="fab fa-facebook-f mr-3" aria-hidden="true"></i></a>
+    
+
+    
+    <a href="//google.com/you" target="_blank" rel="noopener"><i class="fab fa-google-plus-g mr-3" aria-hidden="true"></i></a>
+    
+
+    
+        <a href="https://twitter.com/minhkma" target="_blank" rel="noopener"><i class="fab fa-twitter mr-3" aria-hidden="true"></i></a>
+    
+
+    
+        <a href="//instagram.com/you" target="_blank" rel="noopener"><i class="fab fa-instagram mr-3" aria-hidden="true"></i></a>
+    
+
+    
+        <a href="//px500" target="_blank" rel="noopener"><i class="fab fa-500px mr-3" aria-hidden="true"></i></a>
+    
+
+
+    
+        <a href="mailto:nguyenvanminhkma@gmail.com"><i class="far fa-envelope-open mr-3" aria-hidden="true"></i></a>
+    
+
+    
+
+    
+
+  </div>
+  
+
+  
+  <div class="copyright py-4">
+    
+    <span>  2016 - 2018 &copy; | Theme <a href='https://github.com/orianna-zzo/AllinOne' target="_blank">AllinOne</a> by <a href='https://github.com/orianna-zzo' target="_blank">Orianna</a>  </span>
+  </div>
+  
+
+</footer>
+
+
+    
+
+
+
+
+
+
+<script type="text/javascript" src="https://minhkma.github.io/js/vendors/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://minhkma.github.io/js/vendors/jquery/jquery.smooth-scroll.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://minhkma.github.io/js/vendors/popper.min.js"></script>
+<script type="text/javascript" src="https://minhkma.github.io/js/vendors/holder.min.js"></script>
+<script type="text/javascript" src="https://minhkma.github.io/js/vendors-extensions/bootstrap4/bootstrap.js" ></script>
+
+<script type="text/javascript" src="https://minhkma.github.io/js/vendors/mdb/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://minhkma.github.io/js/main.js"></script>
+
+
+
+  
+  <script src="https://minhkma.github.io/js/vendors/highlight.pack.js"> </script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+ 
+  <script src="https://minhkma.github.io/js/vendors/katex/katex.min.js"> </script>
+  <script src="https://minhkma.github.io/js/vendors/katex/contrib/auto-render.min.js"></script>
+
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          renderMathInElement(document.body);
+      });
+  </script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  new WOW().init();
+</script>
+
+
+
+
+  </body>
+</html>
