@@ -34,12 +34,6 @@
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/tags/rabbitmq/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://minhkma.github.io/series/rabbitmq/</loc>
     <lastmod>2018-10-16T22:37:44+07:00</lastmod>
     <priority>0</priority>
@@ -47,6 +41,12 @@
   
   <url>
     <loc>https://minhkma.github.io/categories/rabbitmq/</loc>
+    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/tags/rabbitmq/</loc>
     <lastmod>2018-10-16T22:37:44+07:00</lastmod>
     <priority>0</priority>
   </url>
