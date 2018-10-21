@@ -258,9 +258,9 @@
             <div class="main-content-wrap">
               
 
-<h1 id="giám-sát-trạng-thái-các-services-trong-openstack-thông-qua-check-mk">Giám sát trạng thái các services trong OpenStack thông qua check_MK</h1>
+<h3 id="giám-sát-trạng-thái-các-services-trong-openstack-thông-qua-check-mk">Giám sát trạng thái các services trong OpenStack thông qua check_MK</h3>
 
-<h2 id="môi-trường">Môi trường:</h2>
+<h4 id="môi-trường">Môi trường:</h4>
 
 <ul>
 <li>CheckMK 1.5</li>
@@ -281,7 +281,7 @@ pip3.5 install python-neutronclient
 </code></pre></li>
 </ul>
 
-<h2 id="thực-hiện-trên-phía-client">Thực hiện trên phía client</h2>
+<h4 id="thực-hiện-trên-phía-client">Thực hiện trên phía client</h4>
 
 <ul>
 <li><p>Trước tiên ta kiểm tra xem thực mục đặt plugin phia client</p>
@@ -351,7 +351,7 @@ service neutron-l3-agent of controller1 : True
 </ul></li>
 </ul>
 
-<h2 id="thực-hiện-trên-server">Thực hiện trên server</h2>
+<h4 id="thực-hiện-trên-server">Thực hiện trên server</h4>
 
 <ul>
 <li>Truy cập vào site omd. Ở đây site OMD của mình là <code>monitoring</code>
@@ -452,7 +452,7 @@ cinder serivices info cinder services: service cinder-volume of controller1@lvm 
 OK - [agent] Version: 1.5.0p5, OS: linux, execution time 2.7 sec | execution_time=2.742 user_time=0.020 system_time=0.000 children_user_time=0.000 children_system_time=0.000 cmk_time_agent=2.726
 </code></pre>
 
-<h2 id="trên-dashboard">Trên dashboard:</h2></li>
+<h4 id="trên-dashboard">Trên dashboard:</h4></li>
 
 <li><p>Tiến hành discovery lại services</p>
 
