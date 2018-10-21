@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://minhkma.github.io/blog/2018-10/check-mk--write-your-own-check/</loc>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://minhkma.github.io/blog/2018-10/c%C3%A1c-lo%E1%BA%A1i-exchange-trong-rabbitmq/</loc>
     <lastmod>2018-10-16T22:37:44+07:00</lastmod>
   </url>
@@ -28,7 +33,25 @@
   </url>
   
   <url>
+    <loc>https://minhkma.github.io/tags/check_mk/</loc>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://minhkma.github.io/</loc>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/series/plugin/</loc>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/categories/rabbitmq/</loc>
     <lastmod>2018-10-16T22:37:44+07:00</lastmod>
     <priority>0</priority>
   </url>
@@ -46,20 +69,20 @@
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/categories/rabbitmq/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
+    <loc>https://minhkma.github.io/categories/rabcheck_mk/</loc>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/series/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/tags/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
+    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
     <priority>0</priority>
   </url>
   

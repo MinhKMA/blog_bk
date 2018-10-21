@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MinhKMA</title>
-    <link>https://minhkma.github.io/</link>
-    <description>Recent content on MinhKMA</description>
+    <title>Check_mk on MinhKMA</title>
+    <link>https://minhkma.github.io/tags/check_mk/</link>
+    <description>Recent content in Check_mk on MinhKMA</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zn-Hans</language>
     <lastBuildDate>Sun, 21 Oct 2018 12:21:26 +0700</lastBuildDate>
     
-	<atom:link href="https://minhkma.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://minhkma.github.io/tags/check_mk/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,22 +21,6 @@
  Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
 [root@check_mk plugins]# check_mk_agent | head &amp;lt;&amp;lt;&amp;lt;check_mk&amp;gt;&amp;gt;&amp;gt; Version: 1.5.0p5 AgentOS: linux Hostname: check_mk AgentDirectory: /etc/check_mk DataDirectory: /var/lib/check_mk_agent SpoolDirectory: /var/lib/check_mk_agent/spool PluginsDirectory: /usr/lib/check_mk_agent/plugins LocalDirectory: /usr/lib/check_mk_agent/local  Thư plugin check được đặt tại thư mục /usr/lib/check_mk_agent/plugins. Các bạn có thể tải scripts ở Github cá nhân của mình.
 [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# ls check_nova.py check_services.py client.py config.cfg utils.py [root@check_mk plugins]#   Trong file config.cfg khai báo thông tin xác thực với hệ thống OpenStack Chấp quyền cho các scripts trong thư mục   [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# chmod +x *   Kiểm tra lại script check  [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# ./check_services.py &amp;lt;&amp;lt;&amp;lt;check_cinder_info&amp;gt;&amp;gt;&amp;gt; service cinder-backup of controller1 : down service cinder-scheduler of controller1 : up service cinder-volume of controller1@lvm : up &amp;lt;&amp;lt;&amp;lt;check_nova_info&amp;gt;&amp;gt;&amp;gt; service nova-conductor of controller1 : up service nova-consoleauth of controller1 : up service nova-scheduler of controller1 : up service nova-compute of compute1 : up service nova-compute of compute2 : up &amp;lt;&amp;lt;&amp;lt;check_neutron_info&amp;gt;&amp;gt;&amp;gt; service neutron-dhcp-agent of compute1 : True service neutron-linuxbridge-agent of controller1 : True service neutron-metadata-agent of compute1 : True service neutron-linuxbridge-agent of compute2 : True service neutron-metadata-agent of compute2 : True service neutron-linuxbridge-agent of compute1 : True service neutron-dhcp-agent of compute2 : True service neutron-l3-agent of controller1 : True   CheckMK quy định tên của plugin được đặt trong &amp;lt;&amp;lt;&amp;lt;name_plugin&amp;gt;&amp;gt;&amp;gt;   Thực hiện trên server  Truy cập vào site omd.</description>
-    </item>
-    
-    <item>
-      <title>Các loại Exchange trong RabbitMQ</title>
-      <link>https://minhkma.github.io/blog/2018-10/c%C3%A1c-lo%E1%BA%A1i-exchange-trong-rabbitmq/</link>
-      <pubDate>Tue, 16 Oct 2018 22:37:44 +0700</pubDate>
-      
-      <guid>https://minhkma.github.io/blog/2018-10/c%C3%A1c-lo%E1%BA%A1i-exchange-trong-rabbitmq/</guid>
-      <description>Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.
-Direct exchange được sử dụng trong trường hợp bạn muốn phân biệt các messages published cho cùng một exchange bằng cách sử dụng một chuỗi định danh đơn giản.
-Exchange mặc định của AMQP brokers phải cung cấp cho direct exchange là amq.direct.
- SCENARIO 1  Exchange: pdf_events Queue A: create_pdf_queue Binding key between exchange (pdf_events) and Queue A (create_pdf_queue): pdf_create  SCENARIO 2
- Exchange: pdf_events Queue B: pdf_log_queue Binding key between exchange (pdf_events) and Queue B (pdf_log_queue): pdf_log  Ví dụ:
-Một message với routing key pdf_log được gửi từ exchange pdf_events. Message đó được định tuyến tới pdf_log_queue vì outing key (pdf_log) khớp với binding key (pdf_log).
-Nếu message routing key không khớp với binding key nào thì sẽ bị hủy bỏ.
-  Default exchange Exchange mặc định là một pre-declared direct exchange không có định danh(tên) thương được biểu diễn bởi một chuỗi rỗng &amp;quot;&amp;quot;.</description>
     </item>
     
   </channel>

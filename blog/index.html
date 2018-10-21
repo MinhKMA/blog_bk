@@ -282,6 +282,8 @@
 
   
 
+  
+
 
 
 
@@ -309,6 +311,15 @@
               </a>
             </li>           
           
+            
+              <li class="middot"></li>
+            
+            <li class="py-1">
+              <a href="https://minhkma.github.io/categories/rabcheck_mk">
+                <span>Rabcheck_mk (1)</span>
+              </a>
+            </li>           
+          
         
       </div>
     </div>
@@ -318,6 +329,8 @@
 
     
           
+
+  
 
   
 
@@ -341,6 +354,9 @@
         
         
         
+            <li><a href="https://minhkma.github.io/tags/check_mk" role="button"><span>check_mk (1)</span></a></li>
+          
+        
             <li><a href="https://minhkma.github.io/tags/rabbitmq" role="button"><span>rabbitmq (1)</span></a></li>
           
         
@@ -351,6 +367,8 @@
   
 
           
+  
+
   
 
 
@@ -374,6 +392,8 @@
       <div class="post-meta" >
         
           
+          
+            <li class="py-1"><a href="https://minhkma.github.io/series/plugin"><span>Plugin (1)</span></a></li>
           
             <li class="py-1"><a href="https://minhkma.github.io/series/rabbitmq"><span>Rabbitmq (1)</span></a></li>
           
@@ -404,7 +424,7 @@
               
                 <div class="px-2 middot"></div>
                 <div>
-                  One post
+                  2 posts
                 </div>
               
             </div>
@@ -434,6 +454,67 @@
             
 
           </div>
+
+          
+              <div class="post-wrapper white-bg post-card">
+  
+  <a href="https://minhkma.github.io/blog/2018-10/check-mk--write-your-own-check/">
+    <div class="post-header text-center">
+      <div class="px-4 post-heading">Check MK – Write your own check</div>
+      <ul class="post-meta li-x mt-1">
+        
+          <li>Oct 21, 2018</li>
+        
+    
+        
+          <li class="middot"></li>
+          <li>3 minutes read</li>
+        
+      </ul>
+    </div>
+    
+
+    
+      Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
+ Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
+[root@check_mk plugins]# check_mk_agent | head &lt;&lt;&lt;check_mk&gt;&gt;&gt; Version: 1.5.0p5 AgentOS: linux Hostname: check_mk AgentDirectory: /etc/check_mk DataDirectory: /var/lib/check_mk_agent SpoolDirectory: /var/lib/check_mk_agent/spool PluginsDirectory: /usr/lib/check_mk_agent/plugins LocalDirectory: /usr/lib/check_mk_agent/local  Thư plugin check được đặt tại thư mục /usr/lib/check_mk_agent/plugins. Các bạn có thể tải scripts ở Github cá nhân của mình.
+[root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# ls check_nova.py check_services.py client.py config.cfg utils.py [root@check_mk plugins]#   Trong file config.cfg khai báo thông tin xác thực với hệ thống OpenStack Chấp quyền cho các scripts trong thư mục   [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# chmod &#43;x *   Kiểm tra lại script check  [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# ./check_services.py &lt;&lt;&lt;check_cinder_info&gt;&gt;&gt; service cinder-backup of controller1 : down service cinder-scheduler of controller1 : up service cinder-volume of controller1@lvm : up &lt;&lt;&lt;check_nova_info&gt;&gt;&gt; service nova-conductor of controller1 : up service nova-consoleauth of controller1 : up service nova-scheduler of controller1 : up service nova-compute of compute1 : up service nova-compute of compute2 : up &lt;&lt;&lt;check_neutron_info&gt;&gt;&gt; service neutron-dhcp-agent of compute1 : True service neutron-linuxbridge-agent of controller1 : True service neutron-metadata-agent of compute1 : True service neutron-linuxbridge-agent of compute2 : True service neutron-metadata-agent of compute2 : True service neutron-linuxbridge-agent of compute1 : True service neutron-dhcp-agent of compute2 : True service neutron-l3-agent of controller1 : True   CheckMK quy định tên của plugin được đặt trong &lt;&lt;&lt;name_plugin&gt;&gt;&gt;   Thực hiện trên server  Truy cập vào site omd.......
+    
+  </a>
+
+  
+  
+  <div class="post-meta li-x mt-2 div-x">
+    <div>
+      
+        
+          <li><a href="https://minhkma.github.io/categories/rabcheck_mk"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> rabcheck_MK </a></li>
+        
+      
+      
+        
+          <li><a href="https://minhkma.github.io/series/plugin"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>plugin</a></li>
+        
+      
+    </div>
+   
+    <div>
+      
+        
+<div class="li-x div-x post-meta">
+  <li class="pr-0"><a href="https://minhkma.github.io/tags/"><i class="fas fa-tags"></i></a></li>
+  <div class="tags-sm">
+    
+      <li><a href="https://minhkma.github.io/tags/check_mk" role="button">check_MK </a></li>
+      
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+</div>
 
           
               <div class="post-wrapper white-bg post-card">
