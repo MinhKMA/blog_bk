@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Check_mk on MinhKMA</title>
+    <link>https://minhkma.github.io/categories/check_mk/</link>
+    <description>Recent content in Check_mk on MinhKMA</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zn-Hans</language>
+    <lastBuildDate>Sun, 21 Oct 2018 12:21:26 +0700</lastBuildDate>
+    
+	<atom:link href="https://minhkma.github.io/categories/check_mk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Check MK – Write your own check</title>
+      <link>https://minhkma.github.io/blog/2018-10/check-mk--write-your-own-check/</link>
+      <pubDate>Sun, 21 Oct 2018 12:21:26 +0700</pubDate>
+      
+      <guid>https://minhkma.github.io/blog/2018-10/check-mk--write-your-own-check/</guid>
+      <description>Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
+ Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client:  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
+[root@check_mk plugins]# check_mk_agent | head &amp;lt;&amp;lt;&amp;lt;check_mk&amp;gt;&amp;gt;&amp;gt; Version: 1.5.0p5 AgentOS: linux Hostname: check_mk AgentDirectory: /etc/check_mk DataDirectory: /var/lib/check_mk_agent SpoolDirectory: /var/lib/check_mk_agent/spool PluginsDirectory: /usr/lib/check_mk_agent/plugins LocalDirectory: /usr/lib/check_mk_agent/local  Thư plugin check được đặt tại thư mục /usr/lib/check_mk_agent/plugins. Các bạn có thể tải scripts ở Github cá nhân của mình.
+[root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# ls check_nova.py check_services.py client.py config.cfg utils.py [root@check_mk plugins]#   Trong file config.cfg khai báo thông tin xác thực với hệ thống OpenStack Chấp quyền cho các scripts trong thư mục   [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# chmod +x *   Kiểm tra lại script check  [root@check_mk plugins]# pwd /usr/lib/check_mk_agent/plugins [root@check_mk plugins]# ./check_services.py &amp;lt;&amp;lt;&amp;lt;check_cinder_info&amp;gt;&amp;gt;&amp;gt; service cinder-backup of controller1 : down service cinder-scheduler of controller1 : up service cinder-volume of controller1@lvm : up &amp;lt;&amp;lt;&amp;lt;check_nova_info&amp;gt;&amp;gt;&amp;gt; service nova-conductor of controller1 : up service nova-consoleauth of controller1 : up service nova-scheduler of controller1 : up service nova-compute of compute1 : up service nova-compute of compute2 : up &amp;lt;&amp;lt;&amp;lt;check_neutron_info&amp;gt;&amp;gt;&amp;gt; service neutron-dhcp-agent of compute1 : True service neutron-linuxbridge-agent of controller1 : True service neutron-metadata-agent of compute1 : True service neutron-linuxbridge-agent of compute2 : True service neutron-metadata-agent of compute2 : True service neutron-linuxbridge-agent of compute1 : True service neutron-dhcp-agent of compute2 : True service neutron-l3-agent of controller1 : True   CheckMK quy định tên của plugin được đặt trong &amp;lt;&amp;lt;&amp;lt;name_plugin&amp;gt;&amp;gt;&amp;gt;   Thực hiện trên server:  Truy cập vào site omd.</description>
+    </item>
+    
+  </channel>
+</rss>
