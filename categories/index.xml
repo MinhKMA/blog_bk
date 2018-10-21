@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on MinhKMA</title>
+    <title>Categories on Minh Nguyen Van</title>
     <link>https://minhkma.github.io/categories/</link>
-    <description>Recent content in Categories on MinhKMA</description>
+    <description>Recent content in Categories on Minh Nguyen Van</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zn-Hans</language>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 21 Oct 2018 22:02:15 +0700</lastBuildDate>
     
 	<atom:link href="https://minhkma.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Check_mk</title>
-      <link>https://minhkma.github.io/categories/check_mk/</link>
-      <pubDate>Sun, 21 Oct 2018 12:21:26 +0700</pubDate>
+      <title>About</title>
+      <link>https://minhkma.github.io/categories/about/</link>
+      <pubDate>Sun, 21 Oct 2018 22:02:15 +0700</pubDate>
       
-      <guid>https://minhkma.github.io/categories/check_mk/</guid>
+      <guid>https://minhkma.github.io/categories/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Checkmk</title>
+      <link>https://minhkma.github.io/categories/checkmk/</link>
+      <pubDate>Sun, 21 Oct 2018 21:59:48 +0700</pubDate>
+      
+      <guid>https://minhkma.github.io/categories/checkmk/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rabbitmq</title>
       <link>https://minhkma.github.io/categories/rabbitmq/</link>
-      <pubDate>Tue, 16 Oct 2018 22:37:44 +0700</pubDate>
+      <pubDate>Sun, 21 Oct 2018 21:59:39 +0700</pubDate>
       
       <guid>https://minhkma.github.io/categories/rabbitmq/</guid>
       <description></description>

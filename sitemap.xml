@@ -3,86 +3,76 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://minhkma.github.io/blog/2018-10/check-mk--write-your-own-check/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <loc>https://minhkma.github.io/2018/10/about-me/</loc>
+    <lastmod>2018-10-21T22:02:15+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/blog/2018-10/c%C3%A1c-lo%E1%BA%A1i-exchange-trong-rabbitmq/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
+    <loc>https://minhkma.github.io/2018/10/plugin_checkmk_openstack/</loc>
+    <lastmod>2018-10-21T21:59:48+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/blog/</loc>
-    <lastmod>2018-09-13T22:31:21+08:00</lastmod>
+    <loc>https://minhkma.github.io/2018/10/exchange_rabbitmq/</loc>
+    <lastmod>2018-10-21T21:59:39+07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/about/</loc>
-    <lastmod>2018-09-02T00:00:00+00:00</lastmod>
+    <loc>https://minhkma.github.io/categories/about/</loc>
+    <lastmod>2018-10-21T22:02:15+07:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/moment/</loc>
-    <lastmod>2015-08-19T20:29:37-07:00</lastmod>
+    <loc>https://minhkma.github.io/archives/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/categories/</loc>
+    <lastmod>2018-10-21T22:02:15+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/categories/check_mk/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://minhkma.github.io/tags/check_mk/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <loc>https://minhkma.github.io/categories/checkmk/</loc>
+    <lastmod>2018-10-21T21:59:48+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <lastmod>2018-10-21T22:02:15+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://minhkma.github.io/series/plugin/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <loc>https://minhkma.github.io/tags/plugin/</loc>
+    <lastmod>2018-10-21T21:59:48+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/post/</loc>
+    <lastmod>2018-10-21T22:02:15+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/categories/rabbitmq/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
+    <lastmod>2018-10-21T21:59:39+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/tags/rabbitmq/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://minhkma.github.io/series/rabbitmq/</loc>
-    <lastmod>2018-10-16T22:37:44+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://minhkma.github.io/series/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <lastmod>2018-10-21T21:59:39+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://minhkma.github.io/tags/</loc>
-    <lastmod>2018-10-21T12:21:26+07:00</lastmod>
+    <lastmod>2018-10-21T21:59:48+07:00</lastmod>
     <priority>0</priority>
   </url>
   
