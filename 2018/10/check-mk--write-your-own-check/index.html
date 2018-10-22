@@ -8,32 +8,44 @@
 <meta name="generator" content="Hugo 0.49.2 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Minh Nguyen Van">
 <meta name="keywords" content="">
-<meta name="description" content=" Sinh viên năm 4 Học viện Kỹ thuật Mật Mã Blog này của tôi viết về:  Những kiến thức mà tôi tìm hiểu được. Kỉ niệm bên cạnh người những bạn. Hành trình theo đuổi ước mơ.  Sở thích:  Uống beer &hellip;.   ">
+<meta name="description" content="Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
+ Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
+[root@check_mk plugins]# check_mk_agent | head &lt;&lt;&lt;check_mk&gt;&gt;&gt; Version: 1.">
 
 
-<meta property="og:description" content=" Sinh viên năm 4 Học viện Kỹ thuật Mật Mã Blog này của tôi viết về:  Những kiến thức mà tôi tìm hiểu được. Kỉ niệm bên cạnh người những bạn. Hành trình theo đuổi ước mơ.  Sở thích:  Uống beer &hellip;.   ">
+<meta property="og:description" content="Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
+ Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
+[root@check_mk plugins]# check_mk_agent | head &lt;&lt;&lt;check_mk&gt;&gt;&gt; Version: 1.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About Me">
-<meta name="twitter:title" content="About Me">
-<meta property="og:url" content="https://minhkma.github.io/2018/10/about-me/">
-<meta property="twitter:url" content="https://minhkma.github.io/2018/10/about-me/">
+<meta property="og:title" content="Check MK – Write your own check">
+<meta name="twitter:title" content="Check MK – Write your own check">
+<meta property="og:url" content="https://minhkma.github.io/2018/10/check-mk--write-your-own-check/">
+<meta property="twitter:url" content="https://minhkma.github.io/2018/10/check-mk--write-your-own-check/">
 <meta property="og:site_name" content="Minh Nguyen Van">
-<meta property="og:description" content=" Sinh viên năm 4 Học viện Kỹ thuật Mật Mã Blog này của tôi viết về:  Những kiến thức mà tôi tìm hiểu được. Kỉ niệm bên cạnh người những bạn. Hành trình theo đuổi ước mơ.  Sở thích:  Uống beer &hellip;.   ">
-<meta name="twitter:description" content=" Sinh viên năm 4 Học viện Kỹ thuật Mật Mã Blog này của tôi viết về:  Những kiến thức mà tôi tìm hiểu được. Kỉ niệm bên cạnh người những bạn. Hành trình theo đuổi ước mơ.  Sở thích:  Uống beer &hellip;.   ">
+<meta property="og:description" content="Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
+ Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
+[root@check_mk plugins]# check_mk_agent | head &lt;&lt;&lt;check_mk&gt;&gt;&gt; Version: 1.">
+<meta name="twitter:description" content="Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
+ Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
+[root@check_mk plugins]# check_mk_agent | head &lt;&lt;&lt;check_mk&gt;&gt;&gt; Version: 1.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-10-21T22:02:15">
+    <meta property="article:published_time" content="2018-10-21T21:59:48">
   
   
-    <meta property="article:modified_time" content="2018-10-21T22:02:15">
+    <meta property="article:modified_time" content="2018-10-21T21:59:48">
   
   
   
     
-      <meta property="article:section" content="about">
+      <meta property="article:section" content="checkMK">
     
   
+  
+    
+      <meta property="article:tag" content="plugin">
+    
   
 
 
@@ -49,12 +61,9 @@
 
 
 
-  <meta property="og:image" content="//d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg">
-  <meta property="twitter:image" content="//d1u9biwaxjngwg.cloudfront.net/welcome-to-tranquilpeak/city-750.jpg">
+  <meta property="og:image" content="https://minhkma.github.io/img/checkmk.png">
+  <meta property="twitter:image" content="https://minhkma.github.io/img/checkmk.png">
 
-
-  <meta property="og:image" content="https://minhkma.github.io/img/nguyenvanminh.jpg">
-  <meta property="twitter:image" content="https://minhkma.github.io/img/nguyenvanminh.jpg">
 
 
 
@@ -63,14 +72,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/5b04fcd56c9418190d3dc84726d479ba?s=640">
 
 
-    <title>About Me</title>
+    <title>Check MK – Write your own check</title>
 
     <link rel="icon" href="https://minhkma.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://minhkma.github.io/2018/10/about-me/">
+    <link rel="canonical" href="https://minhkma.github.io/2018/10/check-mk--write-your-own-check/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -209,22 +218,24 @@
 </nav>
 
       
-  <div class="post-header-cover
-              text-center
-              "
-       style="background-image:url('/img/nguyenvanminh.jpg')"
-       data-behavior="5">
-    
-      <div class="post-header main-content-wrap text-center">
+
+      <div id="main" data-behavior="5"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      About Me
+      Check MK – Write your own check
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-10-21T22:02:15&#43;07:00">
+      <time itemprop="datePublished" datetime="2018-10-21T21:59:48&#43;07:00">
         
   October 21, 2018
 
@@ -235,42 +246,227 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://minhkma.github.io/categories/about">about</a>
+      <a class="category-link" href="https://minhkma.github.io/categories/checkmk">checkMK</a>
     
   
 
   </div>
 
 </div>
-    
-  </div>
-
-
-      <div id="main" data-behavior="5"
-        class="hasCover
-               hasCoverMetaIn
-               hasCoverCaption">
-        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
-          
-            <span class="post-header-cover-caption caption">About Me</span>
-          
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <ul>
-<li>Sinh viên năm 4 Học viện Kỹ thuật Mật Mã</li>
-<li>Blog này của tôi viết về:
+              
+
+<h3 id="giám-sát-trạng-thái-các-services-trong-openstack-thông-qua-check-mk">Giám sát trạng thái các services trong OpenStack thông qua check_MK</h3>
+
+<h4 id="môi-trường">Môi trường:</h4>
 
 <ul>
-<li>Những kiến thức mà tôi tìm hiểu được.</li>
-<li>Kỉ niệm bên cạnh người những bạn.</li>
-<li>Hành trình theo đuổi ước mơ.</li>
-</ul></li>
-<li>Sở thích:
+<li>CheckMK 1.5</li>
+<li>OpenStack Queens</li>
+
+<li><p>Python3.5</p>
 
 <ul>
-<li>Uống beer &hellip;.</li>
+<li>Cách cài đặt python3.5</li>
+</ul>
+
+<pre><code>yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+yum -y install python35u
+yum -y install python35u-pip
+yum install python35u-devel -y
+pip3.5 install python-openstackclient
+pip3.5 install python-neutronclient
+</code></pre></li>
+</ul>
+
+<h4 id="thực-hiện-trên-phía-client">Thực hiện trên phía client</h4>
+
+<ul>
+<li><p>Trước tiên ta kiểm tra xem thực mục đặt plugin phia client</p>
+
+<pre><code>[root@check_mk plugins]# check_mk_agent | head
+&lt;&lt;&lt;check_mk&gt;&gt;&gt;
+Version: 1.5.0p5
+AgentOS: linux
+Hostname: check_mk
+AgentDirectory: /etc/check_mk
+DataDirectory: /var/lib/check_mk_agent
+SpoolDirectory: /var/lib/check_mk_agent/spool
+PluginsDirectory: /usr/lib/check_mk_agent/plugins
+LocalDirectory: /usr/lib/check_mk_agent/local
+</code></pre></li>
+
+<li><p>Thư plugin check được đặt tại thư mục <code>/usr/lib/check_mk_agent/plugins</code>. Các bạn có thể tải scripts ở <a href="https://github.com/MinhKMA/plugin_checkMK/tree/master/OpenStack/client">Github</a> cá nhân của mình.</p>
+
+<pre><code>[root@check_mk plugins]# pwd
+/usr/lib/check_mk_agent/plugins
+[root@check_mk plugins]# ls
+check_nova.py  check_services.py  client.py  config.cfg  utils.py
+[root@check_mk plugins]# 
+</code></pre>
+
+<ul>
+<li>Trong file <code>config.cfg</code> khai báo thông tin xác thực với hệ thống OpenStack</li>
+<li>Chấp quyền cho các scripts trong thư mục
+<br /></li>
+</ul>
+
+<pre><code>[root@check_mk plugins]# pwd
+/usr/lib/check_mk_agent/plugins
+[root@check_mk plugins]# chmod +x *
+</code></pre>
+
+<ul>
+<li>Kiểm tra lại script check</li>
+</ul>
+
+<pre><code>[root@check_mk plugins]# pwd
+/usr/lib/check_mk_agent/plugins
+[root@check_mk plugins]# ./check_services.py 
+&lt;&lt;&lt;check_cinder_info&gt;&gt;&gt;
+service cinder-backup of controller1 : down
+service cinder-scheduler of controller1 : up
+service cinder-volume of controller1@lvm : up
+&lt;&lt;&lt;check_nova_info&gt;&gt;&gt;
+service nova-conductor of controller1 : up
+service nova-consoleauth of controller1 : up
+service nova-scheduler of controller1 : up
+service nova-compute of compute1 : up
+service nova-compute of compute2 : up
+&lt;&lt;&lt;check_neutron_info&gt;&gt;&gt;
+service neutron-dhcp-agent of compute1 : True
+service neutron-linuxbridge-agent of controller1 : True
+service neutron-metadata-agent of compute1 : True
+service neutron-linuxbridge-agent of compute2 : True
+service neutron-metadata-agent of compute2 : True
+service neutron-linuxbridge-agent of compute1 : True
+service neutron-dhcp-agent of compute2 : True
+service neutron-l3-agent of controller1 : True
+</code></pre>
+
+<ul>
+<li>CheckMK quy định tên của plugin được đặt trong <code>&lt;&lt;&lt;name_plugin&gt;&gt;&gt;</code></li>
 </ul></li>
+</ul>
+
+<h4 id="thực-hiện-trên-server">Thực hiện trên server</h4>
+
+<ul>
+<li>Truy cập vào site omd. Ở đây site OMD của mình là <code>monitoring</code>
+<br /></li>
+</ul>
+
+<pre><code>   su - monitoring
+</code></pre>
+
+<ul>
+<li><p>cd vào trong thư mục chứa các files cần đặt trên server:</p>
+
+<pre><code>OMD[monitoring]:/opt/omd/sites/monitoring/local/share/check_mk$ 
+OMD[monitoring]:/opt/omd/sites/monitoring/local/share/check_mk$ tree
+.
+├── agents
+│   ├── bakery
+│   ├── linux
+│   │   └── alert_handlers
+│   ├── plugins
+│   └── special
+├── alert_handlers
+├── checkman
+├── checks
+│   ├── check_cinder_info
+│   ├── check_neutron_info
+│   └── check_nova_info
+├── inventory
+├── locale
+├── mibs
+├── notifications
+├── pnp-rraconf
+├── pnp-templates
+├── reporting
+│   └── images
+└── web
+    ├── htdocs
+    │   └── images
+    └── plugins
+        ├── config
+        ├── dashboard
+        ├── icons
+        ├── metrics
+        ├── pages
+        ├── perfometer
+        ├── sidebar
+        ├── views
+        ├── visuals
+        └── wato
+
+31 directories, 3 files
+OMD[monitoring]:/opt/omd/sites/monitoring/local/share/check_mk$ 
+</code></pre>
+
+<ul>
+<li>Ở đây có 2 thư mục : <code>~/checks/</code> và <code>~/web/plugins/perfometer/</code></li>
+
+<li><p>Ý nghĩa của 2 thư mục này:</p>
+
+<ul>
+<li>Đối với thư mục <code>checks</code>: Làm nhiệm vụ thu thập output từ script trên client để xử lý vào hiển thị lên wato trên dashboard checkMK</li>
+
+<li><p>Đối với thư mục <code>/web/plugins/perfometer</code>: Lấy giá trị của mỗi metric hiển thị lên cột <code>PERF-O-METER</code> trên checkMK</p>
+
+<p><img src='https://i.imgur.com/WLbT2eO.png'></p></li>
+</ul></li>
+
+<li><p>Tải các scripts từ <a href="https://github.com/MinhKMA/plugin_checkMK/tree/master/OpenStack/server">Github</a> đặt vào thư mục <code>checks</code></p></li>
+</ul>
+
+<pre><code>OMD[monitoring]:/opt/omd/sites/monitoring/local/share/check_mk$ ls checks/
+check_cinder_info  check_neutron_info  check_nova_info
+OMD[monitoring]:/opt/omd/sites/monitoring/local/share/check_mk$ 
+</code></pre></li>
+
+<li><p>Tiến hành debug trên server</p>
+
+<ul>
+<li>Sử dụng 2 lệnh dưới đây để debug</li>
+</ul>
+
+<pre><code>check_mk --checks=check_cinder_info -I server
+check_mk --debug -nv --checks=check_cinder_info server
+</code></pre>
+
+<ul>
+<li>Trong đó <code>check_cinder_info</code> là tên của plugin, <code>server</code> là tên của host client trong checkMK.</li>
+</ul>
+
+<pre><code>OMD[monitoring]:/opt/omd/sites/monitoring/local/share/check_mk$ check_mk --debug -nv --checks=check_cinder_info server
+Check_MK version 1.5.0p5
++ FETCHING DATA
+[agent] Execute data source
+[piggyback] Execute data source
+cinder serivices info cinder services: service cinder-backup of controller1 CRIT - service cinder-backup of controller1 : down
+cinder serivices info cinder services: service cinder-scheduler of controller1 OK - service cinder-scheduler of controller1 : up
+cinder serivices info cinder services: service cinder-volume of controller1@lvm OK - service cinder-volume of controller1@lvm : up
+OK - [agent] Version: 1.5.0p5, OS: linux, execution time 2.7 sec | execution_time=2.742 user_time=0.020 system_time=0.000 children_user_time=0.000 children_system_time=0.000 cmk_time_agent=2.726
+</code></pre>
+
+<h4 id="trên-dashboard">Trên dashboard:</h4></li>
+
+<li><p>Tiến hành discovery lại services</p>
+
+<p><img src='https://i.imgur.com/IW5e7NA.png'></p></li>
+
+<li><p>Chọn <code>Bulk discovery</code></p>
+
+<p><img src='https://i.imgur.com/kQZLzzu.png'></p></li>
+
+<li><p>Chọn start sau đó save lại nhưng gì đã thay đổi</p>
+
+<p><img src='https://i.imgur.com/QaFyVSE.png'></p>
+
+<p><img src='https://i.imgur.com/C0Nq8KF.png'></p></li>
 </ul>
 
               
@@ -278,6 +474,16 @@
           </div>
           <div id="post-footer" class="post-footer main-content-wrap">
             
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://minhkma.github.io/tags/plugin/">plugin</a>
+
+                  </div>
+                
               
             
             <div class="post-actions-wrap">
@@ -287,7 +493,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/about-me/" data-tooltip="About Me">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -295,7 +501,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/check-mk--write-your-own-check/" data-tooltip="Check MK – Write your own check">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/" data-tooltip="Exchanges trong RabbitMQ">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -313,18 +519,24 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/about-me/%29">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/check-mk--write-your-own-check/%29">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/about-me/%29">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/check-mk--write-your-own-check/%29">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
       
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
       
       <li class="post-action">
         
@@ -337,6 +549,13 @@
   
 </div>
 
+            
+              
+                <div id="disqus_thread">
+  
+  <script id="disqus_thread" src="//https-minhkma-github-io-1.disqus.com/count.js" async></script>
+</div>
+              
             
           </div>
         </article>
@@ -355,7 +574,7 @@
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/about-me/" data-tooltip="About Me">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -363,7 +582,7 @@
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/check-mk--write-your-own-check/" data-tooltip="Check MK – Write your own check">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/" data-tooltip="Exchanges trong RabbitMQ">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -381,18 +600,24 @@
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/about-me/%29">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/check-mk--write-your-own-check/%29">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/about-me/%29">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/check-mk--write-your-own-check/%29">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
         
       
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
       
       <li class="post-action">
         
@@ -411,13 +636,13 @@
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https%3A%2F%2Fminhkma.github.io%2F2018%2F10%2Fabout-me%2F%29">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https%3A%2F%2Fminhkma.github.io%2F2018%2F10%2Fcheck-mk--write-your-own-check%2F%29">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https%3A%2F%2Fminhkma.github.io%2F2018%2F10%2Fabout-me%2F%29">
+        <a class="share-option-btn" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https%3A%2F%2Fminhkma.github.io%2F2018%2F10%2Fcheck-mk--write-your-own-check%2F%29">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -586,6 +811,30 @@ $(document).ready(function() {
 </script>
 
 
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/minhkma.github.io\/2018\/10\/check-mk--write-your-own-check\/';
+          
+            this.page.identifier = '\/2018\/10\/check-mk--write-your-own-check\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'minhkma';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
   
 
 

@@ -21,22 +21,22 @@
     </item>
     
     <item>
-      <title>Plugin_checkMK_openstack</title>
-      <link>https://minhkma.github.io/2018/10/plugin_checkmk_openstack/</link>
+      <title>Check MK – Write your own check</title>
+      <link>https://minhkma.github.io/2018/10/check-mk--write-your-own-check/</link>
       <pubDate>Sun, 21 Oct 2018 21:59:48 +0700</pubDate>
       
-      <guid>https://minhkma.github.io/2018/10/plugin_checkmk_openstack/</guid>
+      <guid>https://minhkma.github.io/2018/10/check-mk--write-your-own-check/</guid>
       <description>Giám sát trạng thái các services trong OpenStack thông qua check_MK Môi trường:  CheckMK 1.5 OpenStack Queens Python3.5
  Cách cài đặt python3.5  yum -y install https://centos7.iuscommunity.org/ius-release.rpm yum -y install python35u yum -y install python35u-pip yum install python35u-devel -y pip3.5 install python-openstackclient pip3.5 install python-neutronclient   Thực hiện trên phía client  Trước tiên ta kiểm tra xem thực mục đặt plugin phia client
 [root@check_mk plugins]# check_mk_agent | head &amp;lt;&amp;lt;&amp;lt;check_mk&amp;gt;&amp;gt;&amp;gt; Version: 1.</description>
     </item>
     
     <item>
-      <title>Exchange_rabbitMQ</title>
-      <link>https://minhkma.github.io/2018/10/exchange_rabbitmq/</link>
+      <title>Exchanges trong RabbitMQ</title>
+      <link>https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/</link>
       <pubDate>Sun, 21 Oct 2018 21:59:39 +0700</pubDate>
       
-      <guid>https://minhkma.github.io/2018/10/exchange_rabbitmq/</guid>
+      <guid>https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/</guid>
       <description>Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.</description>
     </item>
     

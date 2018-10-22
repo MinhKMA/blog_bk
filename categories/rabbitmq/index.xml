@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Exchange_rabbitMQ</title>
-      <link>https://minhkma.github.io/2018/10/exchange_rabbitmq/</link>
+      <title>Exchanges trong RabbitMQ</title>
+      <link>https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/</link>
       <pubDate>Sun, 21 Oct 2018 21:59:39 +0700</pubDate>
       
-      <guid>https://minhkma.github.io/2018/10/exchange_rabbitmq/</guid>
+      <guid>https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/</guid>
       <description>Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.</description>
     </item>
     
