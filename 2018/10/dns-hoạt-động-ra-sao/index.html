@@ -309,8 +309,9 @@
 
 <p>Đây là file named.cache năm 2005:</p>
 
-<p>```sh
-; This file holds the information on root name servers
+<p>```</p>
+
+<p>; This file holds the information on root name servers
 ; needed to initialize cache of Internet domain name
 ; servers (e.g. reference this file in the
 ; &ldquo;cache  .  &rdquo; configuration file of BIND domain</p>
@@ -396,8 +397,10 @@ L.ROOT-SERVERS.NET.   3600000     A   198.32.64.12
 .                     3600000     NS  M.ROOT-SERVERS.NET.
 M.ROOT-SERVERS.NET.   3600000     A   202.12.27.33
 ; End of File
-```</dd>
+<br /></dd>
 </dl>
+
+<p>```</p>
 
 <p>Từ tệp named.cache nói trên, chúng ta biết rằng có 13 Name Server Root trên internet và được phân phối trên tất cả mọi nơi trên toàn thế giới</p>
 
@@ -450,7 +453,7 @@ M.ROOT-SERVERS.NET.   3600000     A   202.12.27.33
 <li><p>Cú pháp:</p></li>
 </ul>
 
-<pre><code class="language-sh">[tên-miền] IN SOA [tên-DNS-Server] [địa-chỉ-email] (
+<pre><code>[tên-miền] IN SOA [tên-DNS-Server] [địa-chỉ-email] (
 
 Serial number;
 
@@ -467,7 +470,7 @@ Time-to-line number)
 <li>Ví dụ:</li>
 </ul>
 
-<pre><code class="language-sh">nhanhoa.com. IN SOA ns.nhanhoa.com. root.nhanhoa.com. (
+<pre><code>nhanhoa.com. IN SOA ns.nhanhoa.com. root.nhanhoa.com. (
 
 1 ; serial
 
@@ -511,7 +514,7 @@ Time-to-line number)
 
 <li><p>Ví dụ:</p>
 
-<pre><code class="language-sh">nhanhoa.com IN NS dns1.nhanhoa.com
+<pre><code>nhanhoa.com IN NS dns1.nhanhoa.com
 nhanhoa.com IN NS dns2.nhanhoa.com
 </code></pre></li>
 </ul>
