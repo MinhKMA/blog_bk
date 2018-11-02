@@ -40,5 +40,14 @@
       <description>Các loại Exchange Direct Exchange Một direct exchange cung cấp các messages tới queues dựa trên một message routing key. Routing key là một thuộc thuộc tính của mesage được thêm vào message header từ producer. Routing key có thể được xem là một địa chỉ mà Exchange sử dụng để định tuyến các messages. A message goes to the queue(s) whose binding key exactly matches the routing key of the message.</description>
     </item>
     
+    <item>
+      <title>DNS hoạt động ra sao?</title>
+      <link>https://minhkma.github.io/2018/10/dns-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-ra-sao/</link>
+      <pubDate>Tue, 02 Oct 2018 21:29:33 +0700</pubDate>
+      
+      <guid>https://minhkma.github.io/2018/10/dns-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-ra-sao/</guid>
+      <description>Lời mở đầu Tại thời điểm bây giờ các từ khóa như Cloud, docker, CICD, Machine Learning, Big Data &amp;hellip; được nhắc đến nhiều trong thời đại công nghệ 4.0 này thì tôi lại đi viết một bài tìm hiểu về DNS. Trước đây tôi nghĩ DNS là những kiến thức căn bản mà hầu như ai cũng biết và chẳng có gì để viết về nó, nhưng gần đây tôi đã dành thời gian của mình để hệ thống lại những kiến thức căn bản.</description>
+    </item>
+    
   </channel>
 </rss>
