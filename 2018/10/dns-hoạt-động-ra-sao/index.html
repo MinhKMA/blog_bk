@@ -307,18 +307,16 @@
 
 <p>Trên thực tế tất cả các Name Server sẽ tải về và cài đặt một tệp tin từ máy chủ FTP của liên quốc tế. File được gọi là &ldquo;named.cache&rdquo; hoặc &ldquo;named.root&rdquo;. File đó có địa chỉ IP của tất cả Root Name Servers.</p>
 
-<p>Đây là file named.cache năm 2005:</p>
+<p>Đây là file named.cache năm 2005:</p></li>
+</ol>
 
-<p>```
-; This file holds the information on root name servers
-; needed to initialize cache of Internet domain name
-; servers (e.g. reference this file in the
-; &ldquo;cache  .  &rdquo; configuration file of BIND domain</p>
-
-<dl>
-<dd>name servers).
+<pre><code>; This file holds the information on root name servers 
+; needed to initialize cache of Internet domain name 
+; servers (e.g. reference this file in the 
+; &quot;cache  .  &quot; configuration file of BIND domain 
+: name servers).
 ;
-; This file is made available by InterNIC registration
+; This file is made available by InterNIC registration 
 ; services under anonymous FTP as
 ;     file             /domain/named.root
 ;     on server        FTP.RS.INTERNIC.NET
@@ -395,16 +393,15 @@ L.ROOT-SERVERS.NET.   3600000     A   198.32.64.12
 ;
 .                     3600000     NS  M.ROOT-SERVERS.NET.
 M.ROOT-SERVERS.NET.   3600000     A   202.12.27.33
-; End of File
-<br /></dd>
-</dl>
+; End of File   
+</code></pre>
 
-<p>```</p>
+<pre><code>Từ tệp named.cache nói trên, chúng ta biết rằng có 13 Name Server Root trên internet và được phân phối trên tất cả mọi nơi trên toàn thế giới 
 
-<p>Từ tệp named.cache nói trên, chúng ta biết rằng có 13 Name Server Root trên internet và được phân phối trên tất cả mọi nơi trên toàn thế giới</p>
+Root Name Servers có tất cả thông tin của Autoritative Domain Name Servers cho top level domain names (VD: .com, .org, .net, .com.hk, etc ..)
+</code></pre>
 
-<p>Root Name Servers có tất cả thông tin của Autoritative Domain Name Servers cho top level domain names (VD: .com, .org, .net, .com.hk, etc ..)</p></li>
-
+<ol>
 <li><p>Khi ISP Name Server của bạn không có thông tin địa chỉ IP của MyGreatName.com, nó sẽ kiểm tra tập tin named.cache và yêu cầu trợ giúp từ Root NameServer. Nếu Root NameServer bị lỗi hoặc không có phản hồi, Name Server ISP của bạn sẽ hỏi Root NameServer thứ 2.</p></li>
 
 <li><p>Root Name Serve sẽ nói ch ISP Name Server của bạn authoritative Name Server của MyGreatName.com là 212.69.192.10 Primary Name Server) và 212.69.192.11 (Secondary Name Server).</p>
