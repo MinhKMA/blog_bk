@@ -256,6 +256,24 @@
 
 <h1 id="tổng-quan-về-dns">Tổng quan về DNS</h1>
 
+<h2 id="mục-lục">Mục lục</h2>
+
+<ul>
+<li><a href="#1">I. DNS là gì? </a></li>
+<li><a href="#2">II. Chức năng</a></li>
+<li><a href="#3">III. Cấu trúc của DNS</a><br />
+
+<ul>
+<li><a href="#4">1. Cấu trúc cơ sở dữ liệu</a></li>
+<li><a href="#5">2. Các bản ghi</a></li>
+</ul></li>
+<li><a href="#6">IV. Workflow</a></li>
+<li><a href="#7">V. Sử dụng tcpdump và wireshark để phân tích</a></li>
+<li><a href="#8">VI. Tài liệu tham khảo</a></li>
+</ul>
+
+<p><a name="1"></a></p>
+
 <h2 id="i-dns-là-gì">I.DNS là gì?</h2>
 
 <ul>
@@ -288,135 +306,17 @@
 </ul></li>
 </ul>
 
+<p><a name="2"></a></p>
+
 <h2 id="ii-chức-năng-của-dns">II. Chức năng của DNS</h2>
 
 <p>Mỗi Website có một tên (là tên miền hay đường dẫn URL:Universal Resource Locator) và một địa chỉ IP. Địa chỉ IP gồm 4 nhóm số cách nhau bằng dấu chấm(Ipv4). Khi mở một trình duyệt Web và nhập tên website, trình duyệt sẽ đến thẳng website mà không cần phải thông qua việc nhập địa chỉ IP của trang web. Quá trình &ldquo;dịch&rdquo; tên miền thành địa chỉ IP để cho trình duyệt hiểu và truy cập được vào website là công việc của một DNS server. Các DNS trợ giúp qua lại với nhau để dịch địa chỉ &ldquo;IP&rdquo; thành &ldquo;tên&rdquo; và ngược lại. Người sử dụng chỉ cần nhớ &ldquo;tên&rdquo;, không cần phải nhớ địa chỉ IP (địa chỉ IP là những con số rất khó nhớ)</p>
 
-<h3 id="iii-workflow">III. Workflow</h3>
+<p><a name="3"></a></p>
 
-<p><img src="https://i.imgur.com/OTJoDib.png"></p>
+<h2 id="iii-cấu-trúc-của-dns">III. Cấu trúc của DNS</h2>
 
-<ol>
-<li><p>Khi máy tính của bạn cần kết nối với máy chủ lưu trữ trên Internet (ví dụ: MyGreatName.com), bạn chỉ cần nhập Tên miền (ví dụ: MyGreatName.com) vào URL của trình duyệt. Sau đó, máy tính của bạn sẽ liên hệ với Name Servers được cấu hình hoặc mặc định (thường là ISP Name Server), yêu cầu địa chỉ IP của máy chủ lưu trữ (ví dụ MyGreatName.com).</p></li>
-
-<li><p>Nếu ISP Name Server của bạn có thông tin về địa chỉ IP của máy chủ truy vấn, nó sẽ cho máy tính của bạn biết ngay</p></li>
-
-<li><p>Giả sử rằng ISP Name Server của bạn không có thông tin của MyGreatName.com. ISP Name Server của bạn sẽ hỏi DNS Root Name Server ngay lập tức Name Server có thông tin của MyGreatName.com.</p>
-
-<p>ISP Name Server của bạn có thể biết máy chủ Root Name như thế nào? Root Name Server nào cần hỏi?</p>
-
-<p>Trên thực tế tất cả các Name Server sẽ tải về và cài đặt một tệp tin từ máy chủ FTP của liên quốc tế. File được gọi là &ldquo;named.cache&rdquo; hoặc &ldquo;named.root&rdquo;. File đó có địa chỉ IP của tất cả Root Name Servers.</p>
-
-<p>Đây là file named.cache năm 2005:</p></li>
-</ol>
-
-<pre><code>; This file holds the information on root name servers 
-; needed to initialize cache of Internet domain name 
-; servers (e.g. reference this file in the 
-; &quot;cache  .  &quot; configuration file of BIND domain 
-: name servers).
-;
-; This file is made available by InterNIC registration 
-; services under anonymous FTP as
-;     file             /domain/named.root
-;     on server        FTP.RS.INTERNIC.NET
-; -OR- under Gopher at RS.INTERNIC.NET
-;     under menu     InterNIC Registration Services (NSI)
-;        submenu     InterNIC Registration Archives
-;     file           named.root
-;
-; last update:    Aug 22, 1997
-; related version of root zone:   1997082200
-;
-;
-; formerly NS.INTERNIC.NET
-;
-.                     3600000 IN  NS  A.ROOT-SERVERS.NET.
-A.ROOT-SERVERS.NET.   3600000     A   198.41.0.4
-;
-; formerly NS1.ISI.EDU
-;
-.                     3600000     NS  B.ROOT-SERVERS.NET.
-B.ROOT-SERVERS.NET.   3600000     A   128.9.0.107
-;
-; formerly C.PSI.NET
-;
-.                     3600000     NS  C.ROOT-SERVERS.NET.
-C.ROOT-SERVERS.NET.   3600000     A   192.33.4.12
-;
-; formerly TERP.UMD.EDU
-;
-.                     3600000     NS  D.ROOT-SERVERS.NET.
-D.ROOT-SERVERS.NET.   3600000     A   128.8.10.90
-;
-; formerly NS.NASA.GOV
-;
-.                     3600000     NS  E.ROOT-SERVERS.NET.
-E.ROOT-SERVERS.NET.   3600000     A   192.203.230.10
-;
-; formerly NS.ISC.ORG
-;
-.                     3600000     NS  F.ROOT-SERVERS.NET.
-F.ROOT-SERVERS.NET.   3600000     A   192.5.5.241
-;
-; formerly NS.NIC.DDN.MIL
-;
-.                     3600000     NS  G.ROOT-SERVERS.NET.
-G.ROOT-SERVERS.NET.   3600000     A   192.112.36.4
-;
-; formerly AOS.ARL.ARMY.MIL
-;
-.                     3600000     NS  H.ROOT-SERVERS.NET.
-H.ROOT-SERVERS.NET.   3600000     A   128.63.2.53
-;
-; formerly NIC.NORDU.NET
-;
-.                     3600000     NS  I.ROOT-SERVERS.NET.
-I.ROOT-SERVERS.NET.   3600000     A   192.36.148.17
-;
-; temporarily housed at NSI (InterNIC)
-;
-.                     3600000     NS  J.ROOT-SERVERS.NET.
-J.ROOT-SERVERS.NET.   3600000     A   198.41.0.10
-;
-; housed in LINX, operated by RIPE NCC
-;
-.                     3600000     NS  K.ROOT-SERVERS.NET.
-K.ROOT-SERVERS.NET.   3600000     A   193.0.14.129
-;
-; temporarily housed at ISI (IANA)
-;
-.                     3600000     NS  L.ROOT-SERVERS.NET.
-L.ROOT-SERVERS.NET.   3600000     A   198.32.64.12
-;
-; housed in Japan, operated by WIDE
-;
-.                     3600000     NS  M.ROOT-SERVERS.NET.
-M.ROOT-SERVERS.NET.   3600000     A   202.12.27.33
-; End of File   
-</code></pre>
-
-<ul>
-<li><p>Từ tệp named.cache nói trên, chúng ta biết rằng có 13 Name Server Root trên internet và được phân phối trên tất cả mọi nơi trên toàn thế giới</p></li>
-
-<li><p>Root Name Servers có tất cả thông tin của Autoritative Domain Name Servers cho top level domain names (VD: .com, .org, .net, .com.hk, etc ..)</p></li>
-</ul>
-
-<ol>
-<li><p>Khi ISP Name Server của bạn không có thông tin địa chỉ IP của MyGreatName.com, nó sẽ kiểm tra tập tin named.cache và yêu cầu trợ giúp từ Root NameServer. Nếu Root NameServer bị lỗi hoặc không có phản hồi, Name Server ISP của bạn sẽ hỏi Root NameServer thứ 2.</p></li>
-
-<li><p>Root Name Serve sẽ nói ch ISP Name Server của bạn authoritative Name Server của MyGreatName.com là 212.69.192.10 Primary Name Server) và 212.69.192.11 (Secondary Name Server).</p>
-
-<p>Bây giờ, bạn nên biết rằng tại sao bạn cần phải gửi thông tin của hai Name Server khi đăng ký tên miền mới.</p></li>
-
-<li><p>Bây giờ ISP Name Server của bạn đã có địa chỉ ip của Authoritative Name Server MyGreatName.com. ISP Name Server của bạn sẽ liên lạc với Authoritative Name Server của MyGreatName.com (212.69.192.10). Authoritative Name Server của MyGreatName.com sẽ kiểm tra và xác nhận thông tin của MyGreatName.com. Sau đó nó cho biết địa chỉ IP của MyGreatName.com (212.69.204.148) với ISP của bạn.</p></li>
-
-<li><p>ISP Name Server của bạn bây giờ có địa chỉ IP của MyGreatName.com, nó sẽ cho máy tính của bạn ngay lập tức.</p></li>
-
-<li><p>Khi máy tính của bạn nhận được địa chỉ IP của MyGreatName.com, máy tính của bạn có thể giao tiếp với MyGreatName.com.</p></li>
-</ol>
-
-<h2 id="iv-cấu-trúc-của-dns">IV. Cấu trúc của DNS</h2>
+<p><a name="4"></a></p>
 
 <h3 id="1-cấu-trúc-cơ-sở-dữ-liệu">1. Cấu trúc cơ sở dữ liệu.</h3>
 
@@ -437,6 +337,8 @@ M.ROOT-SERVERS.NET.   3600000     A   202.12.27.33
 </ul>
 
 <p>Hệ thống cơ sở dữ liệu của DNS là hệ thống dữ liệu phân tán hình cây như cấu trúc đó là cấu trúc logic trên mạng Internet</p>
+
+<p><a name="5"></a></p>
 
 <h3 id="2-các-bản-ghi-thường-có-trong-cơ-sở-dữ-liệu-của-dns-server">2.Các bản ghi thường có trong cơ sở dữ liệu của DNS server</h3>
 
@@ -595,6 +497,140 @@ nhanhoa.com IN NS dns2.nhanhoa.com
 
 <p><code>100.10.10.10.in-addr.arpa IN PTR www.nhanhoa.com</code></p></li>
 </ul>
+
+<p><a name="6"></a></p>
+
+<h3 id="iv-workflow">IV. Workflow</h3>
+
+<p><img src="https://i.imgur.com/OTJoDib.png"></p>
+
+<ol>
+<li><p>Khi máy tính của bạn cần kết nối với máy chủ lưu trữ trên Internet (ví dụ: MyGreatName.com), bạn chỉ cần nhập Tên miền (ví dụ: MyGreatName.com) vào URL của trình duyệt. Sau đó, máy tính của bạn sẽ liên hệ với Name Servers được cấu hình hoặc mặc định (thường là ISP Name Server), yêu cầu địa chỉ IP của máy chủ lưu trữ (ví dụ MyGreatName.com).</p></li>
+
+<li><p>Nếu ISP Name Server của bạn có thông tin về địa chỉ IP của máy chủ truy vấn, nó sẽ cho máy tính của bạn biết ngay</p></li>
+
+<li><p>Giả sử rằng ISP Name Server của bạn không có thông tin của MyGreatName.com. ISP Name Server của bạn sẽ hỏi DNS Root Name Server ngay lập tức Name Server có thông tin của MyGreatName.com.</p>
+
+<p>ISP Name Server của bạn có thể biết máy chủ Root Name như thế nào? Root Name Server nào cần hỏi?</p>
+
+<p>Trên thực tế tất cả các Name Server sẽ tải về và cài đặt một tệp tin từ máy chủ FTP của liên quốc tế. File được gọi là &ldquo;named.cache&rdquo; hoặc &ldquo;named.root&rdquo;. File đó có địa chỉ IP của tất cả Root Name Servers.</p>
+
+<p>Đây là file named.cache năm 2005:</p>
+
+<p>```
+; This file holds the information on root name servers
+; needed to initialize cache of Internet domain name
+; servers (e.g. reference this file in the
+; &ldquo;cache  .  &rdquo; configuration file of BIND domain</p>
+
+<dl>
+<dd>name servers).
+;
+; This file is made available by InterNIC registration
+; services under anonymous FTP as
+;     file             /domain/named.root
+;     on server        FTP.RS.INTERNIC.NET
+; -OR- under Gopher at RS.INTERNIC.NET
+;     under menu     InterNIC Registration Services (NSI)
+;        submenu     InterNIC Registration Archives
+;     file           named.root
+;
+; last update:    Aug 22, 1997
+; related version of root zone:   1997082200
+;
+;
+; formerly NS.INTERNIC.NET
+;
+.                     3600000 IN  NS  A.ROOT-SERVERS.NET.
+A.ROOT-SERVERS.NET.   3600000     A   198.41.0.4
+;
+; formerly NS1.ISI.EDU
+;
+.                     3600000     NS  B.ROOT-SERVERS.NET.
+B.ROOT-SERVERS.NET.   3600000     A   128.9.0.107
+;
+; formerly C.PSI.NET
+;
+.                     3600000     NS  C.ROOT-SERVERS.NET.
+C.ROOT-SERVERS.NET.   3600000     A   192.33.4.12
+;
+; formerly TERP.UMD.EDU
+;
+.                     3600000     NS  D.ROOT-SERVERS.NET.
+D.ROOT-SERVERS.NET.   3600000     A   128.8.10.90
+;
+; formerly NS.NASA.GOV
+;
+.                     3600000     NS  E.ROOT-SERVERS.NET.
+E.ROOT-SERVERS.NET.   3600000     A   192.203.230.10
+;
+; formerly NS.ISC.ORG
+;
+.                     3600000     NS  F.ROOT-SERVERS.NET.
+F.ROOT-SERVERS.NET.   3600000     A   192.5.5.241
+;
+; formerly NS.NIC.DDN.MIL
+;
+.                     3600000     NS  G.ROOT-SERVERS.NET.
+G.ROOT-SERVERS.NET.   3600000     A   192.112.36.4
+;
+; formerly AOS.ARL.ARMY.MIL
+;
+.                     3600000     NS  H.ROOT-SERVERS.NET.
+H.ROOT-SERVERS.NET.   3600000     A   128.63.2.53
+;
+; formerly NIC.NORDU.NET
+;
+.                     3600000     NS  I.ROOT-SERVERS.NET.
+I.ROOT-SERVERS.NET.   3600000     A   192.36.148.17
+;
+; temporarily housed at NSI (InterNIC)
+;
+.                     3600000     NS  J.ROOT-SERVERS.NET.
+J.ROOT-SERVERS.NET.   3600000     A   198.41.0.10
+;
+; housed in LINX, operated by RIPE NCC
+;
+.                     3600000     NS  K.ROOT-SERVERS.NET.
+K.ROOT-SERVERS.NET.   3600000     A   193.0.14.129
+;
+; temporarily housed at ISI (IANA)
+;
+.                     3600000     NS  L.ROOT-SERVERS.NET.
+L.ROOT-SERVERS.NET.   3600000     A   198.32.64.12
+;
+; housed in Japan, operated by WIDE
+;
+.                     3600000     NS  M.ROOT-SERVERS.NET.
+M.ROOT-SERVERS.NET.   3600000     A   202.12.27.33
+; End of File<br />
+```</dd>
+</dl></li>
+</ol>
+
+<ul>
+<li><p>Từ tệp named.cache nói trên, chúng ta biết rằng có 13 Name Server Root trên internet và được phân phối trên tất cả mọi nơi trên toàn thế giới</p></li>
+
+<li><p>Root Name Servers có tất cả thông tin của Autoritative Domain Name Servers cho top level domain names (VD: .com, .org, .net, .com.hk, etc ..)</p></li>
+</ul>
+
+<ol>
+<li><p>Khi ISP Name Server của bạn không có thông tin địa chỉ IP của MyGreatName.com, nó sẽ kiểm tra tập tin named.cache và yêu cầu trợ giúp từ Root NameServer. Nếu Root NameServer bị lỗi hoặc không có phản hồi, Name Server ISP của bạn sẽ hỏi Root NameServer thứ 2.</p></li>
+
+<li><p>Root Name Serve sẽ nói ch ISP Name Server của bạn authoritative Name Server của MyGreatName.com là 212.69.192.10 Primary Name Server) và 212.69.192.11 (Secondary Name Server).</p>
+
+<p>Bây giờ, bạn nên biết rằng tại sao bạn cần phải gửi thông tin của hai Name Server khi đăng ký tên miền mới.</p></li>
+
+<li><p>Bây giờ ISP Name Server của bạn đã có địa chỉ ip của Authoritative Name Server MyGreatName.com. ISP Name Server của bạn sẽ liên lạc với Authoritative Name Server của MyGreatName.com (212.69.192.10). Authoritative Name Server của MyGreatName.com sẽ kiểm tra và xác nhận thông tin của MyGreatName.com. Sau đó nó cho biết địa chỉ IP của MyGreatName.com (212.69.204.148) với ISP của bạn.</p></li>
+
+<li><p>ISP Name Server của bạn bây giờ có địa chỉ IP của MyGreatName.com, nó sẽ cho máy tính của bạn ngay lập tức.</p></li>
+
+<li><p>Khi máy tính của bạn nhận được địa chỉ IP của MyGreatName.com, máy tính của bạn có thể giao tiếp với MyGreatName.com.</p></li>
+</ol>
+
+<p><a name="7"></a></p>
+
+<h2 id="v-sử-dụng-tcpdump-và-wireshark-phân-tích-gói-tin">V. Sử dụng TCPdump và wireshark phân tích gói tin</h2>
 
 <p><strong>Như đã đề cập ở trên về cách thức hoạt động của DNS server, bây giờ mình sẽ sử dụng tcpdump để phân tích gói tin kiểm chứng lại</strong></p>
 
@@ -996,6 +1032,17 @@ Domain Name System (response)
 </code></pre>
 
 <p>Qua bài viết này hy vọng sẽ giúp ích được các bạn khi tìm hiểu về  DNS. Bài viết của mình còn nhiều thiếu sót mong nhận được lời góp ý từ các bạn.</p>
+
+<p><a name="8"></a></p>
+
+<h2 id="vi-tài-liệu-tham-khảo">VI. Tài liệu tham khảo</h2>
+
+<ul>
+<li><a href="https://www.verisign.com/en_US/website-presence/online/how-dns-works/index.xhtml">https://www.verisign.com/en_US/website-presence/online/how-dns-works/index.xhtml</a></li>
+<li><a href="http://www.mygreatname.com/how-dns-works/e-04-how-dns-works.htm">http://www.mygreatname.com/how-dns-works/e-04-how-dns-works.htm</a></li>
+<li><a href="https://quantrimang.com/tim-hieu-ve-dns-dns-lookup-la-gi-118286">https://quantrimang.com/tim-hieu-ve-dns-dns-lookup-la-gi-118286</a></li>
+<li><a href="https://www.unixmen.com/setting-dns-server-centos-7/">https://www.unixmen.com/setting-dns-server-centos-7/</a></li>
+</ul>
 
               
             </div>
