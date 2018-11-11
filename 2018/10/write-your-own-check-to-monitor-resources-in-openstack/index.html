@@ -8,19 +8,47 @@
 <meta name="generator" content="Hugo 0.49.2 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Minh Nguyen Van">
 <meta name="keywords" content="">
-<meta name="description" content="Blog của Minh">
+<meta name="description" content="Montoring resources OpensStack Write your own check to monitor resources in OpenStack
+1. Prepare  Zabbix server:  Version: 3.0 OS: CentOS7 IP: 10.10.10.174  OpenStack Queens  OS: CentOS7 IP controller: 10.10.10.175 Two node compute and One node cinder   You can install via links reference: - Install OpenStack Queens - Install Zabbix server
+Describe: The plugin installed in your controller node. It get metric from OpenStack and send to zabbix server via api.">
 
 
-<meta property="og:description" content="Blog của Minh">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rabbitmq">
-<meta name="twitter:title" content="Rabbitmq">
-<meta property="og:url" content="https://minhkma.github.io/categories/rabbitmq/">
-<meta property="twitter:url" content="https://minhkma.github.io/categories/rabbitmq/">
+<meta property="og:description" content="Montoring resources OpensStack Write your own check to monitor resources in OpenStack
+1. Prepare  Zabbix server:  Version: 3.0 OS: CentOS7 IP: 10.10.10.174  OpenStack Queens  OS: CentOS7 IP controller: 10.10.10.175 Two node compute and One node cinder   You can install via links reference: - Install OpenStack Queens - Install Zabbix server
+Describe: The plugin installed in your controller node. It get metric from OpenStack and send to zabbix server via api.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Write your own check to monitor resources in OpenStack">
+<meta name="twitter:title" content="Write your own check to monitor resources in OpenStack">
+<meta property="og:url" content="https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/">
+<meta property="twitter:url" content="https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/">
 <meta property="og:site_name" content="Minh Nguyen Van">
-<meta property="og:description" content="Blog của Minh">
-<meta name="twitter:description" content="Blog của Minh">
+<meta property="og:description" content="Montoring resources OpensStack Write your own check to monitor resources in OpenStack
+1. Prepare  Zabbix server:  Version: 3.0 OS: CentOS7 IP: 10.10.10.174  OpenStack Queens  OS: CentOS7 IP controller: 10.10.10.175 Two node compute and One node cinder   You can install via links reference: - Install OpenStack Queens - Install Zabbix server
+Describe: The plugin installed in your controller node. It get metric from OpenStack and send to zabbix server via api.">
+<meta name="twitter:description" content="Montoring resources OpensStack Write your own check to monitor resources in OpenStack
+1. Prepare  Zabbix server:  Version: 3.0 OS: CentOS7 IP: 10.10.10.174  OpenStack Queens  OS: CentOS7 IP controller: 10.10.10.175 Two node compute and One node cinder   You can install via links reference: - Install OpenStack Queens - Install Zabbix server
+Describe: The plugin installed in your controller node. It get metric from OpenStack and send to zabbix server via api.">
 <meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2018-10-11T20:35:31">
+  
+  
+    <meta property="article:modified_time" content="2018-10-11T20:35:31">
+  
+  
+  
+    
+      <meta property="article:section" content="plugin">
+    
+  
+  
+    
+      <meta property="article:tag" content="zabbix">
+    
+      <meta property="article:tag" content="openstack">
+    
+  
 
 
 <meta name="twitter:card" content="summary">
@@ -35,6 +63,9 @@
 
 
 
+  <meta property="og:image" content="https://minhkma.github.io/img/zabbix.jpg">
+  <meta property="twitter:image" content="https://minhkma.github.io/img/zabbix.jpg">
+
 
 
 
@@ -43,16 +74,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/5b04fcd56c9418190d3dc84726d479ba?s=640">
 
 
-    <title>Rabbitmq</title>
+    <title>Write your own check to monitor resources in OpenStack</title>
 
     <link rel="icon" href="https://minhkma.github.io/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://minhkma.github.io/categories/rabbitmq/index.xml">
-    
 
     
 
-    <link rel="canonical" href="https://minhkma.github.io/categories/rabbitmq/">
+    <link rel="canonical" href="https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -72,7 +101,7 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="2">
+      <header id="header" data-behavior="5">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
     <a class="header-title-link" href="https://minhkma.github.io/">Minh Nguyen Van</a>
@@ -92,7 +121,7 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="2">
+      <nav id="sidebar" data-behavior="5">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
@@ -191,40 +220,26 @@
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="2"
+      <div id="main" data-behavior="5"
         class="
                hasCoverMetaIn
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
   
-    
+    <h1 class="post-title" itemprop="headline">
+      Write your own check to monitor resources in OpenStack
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/">
-          Exchanges trong RabbitMQ
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-10-21T21:59:39&#43;07:00">
+      <time itemprop="datePublished" datetime="2018-10-11T20:35:31&#43;07:00">
         
-  October 21, 2018
+  October 11, 2018
 
       </time>
     
@@ -233,37 +248,196 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://minhkma.github.io/categories/rabbitmq">RabbitMQ</a>
+      <a class="category-link" href="https://minhkma.github.io/categories/plugin">plugin</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              
+
+<h1 id="montoring-resources-opensstack">Montoring resources OpensStack</h1>
+
+<p>Write your own check to monitor resources in OpenStack</p>
+
+<p><img src="https://i.imgur.com/h1fQnGV.png"></p>
+
+<h2 id="1-prepare">1. Prepare</h2>
+
+<ul>
+<li>Zabbix server:
+
+<ul>
+<li>Version: 3.0</li>
+<li>OS: CentOS7</li>
+<li>IP: 10.10.10.174</li>
+</ul></li>
+<li>OpenStack Queens
+
+<ul>
+<li>OS: CentOS7</li>
+<li>IP controller: 10.10.10.175</li>
+<li>Two node compute and One node cinder</li>
+</ul></li>
+</ul>
+
+<p>You can install via links reference:
+- <a href="https://github.com/congto/openstack-tools/tree/master/scripts/OpenStack-Queens-No-HA/CentOS7">Install OpenStack Queens</a>
+- <a href="https://www.zabbix.com/documentation/3.0/manual/installation/install_from_packages/server_installation_with_mysql">Install Zabbix server</a></p>
+
+<p><strong>Describe</strong>: The plugin installed in your controller node. It get metric from OpenStack and send to zabbix server via api.</p>
+
+<h2 id="2-install">2. Install</h2>
+
+<h3 id="in-dashboard-you-create-items">In dashboard, You create items:</h3>
+
+<ul>
+<li>Download templates openstack and import to zabbix server</li>
+</ul>
+
+<h3 id="in-controller-node">In controller node:</h3>
+
+<ul>
+<li><p>Setup python3:</p>
+
+<pre><code>yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+yum -y install python35u
+yum -y install python35u-pip
+yum install python35u-devel -y
+</code></pre></li>
+</ul>
+
+<h4 id="install-from-source">Install from source:</h4>
+
+<ul>
+<li><p>Clone source code:</p>
+
+<pre><code>https://github.com/hocchudong/plugin_zabbix_openstack.git
+</code></pre></li>
+
+<li><p>Update configuration in <code>etc/config.cfg</code> of source code and copy it to <code>/etc/openstack_monitoring/config.cfg</code></p></li>
+
+<li><p>Go to openstack_monitoring and install package in file <code>requirements.txt</code></p>
+
+<p><code>pip3.5 install -r requirements.txt</code></p></li>
+
+<li><p>Go to openstack_monitoring and run command:</p>
+
+<p><code>python3.5 main.py start|stop|restart</code></p></li>
+</ul>
+
+<h4 id="install-from-file-setup-py">Install from file setup.py</h4>
+
+<ul>
+<li><p>Edit <code>config.cfg</code> in <code>etc/config.cfg</code></p></li>
+
+<li><p>Go to source code:</p>
+
+<p><code>python3.5 setup.py install</code></p></li>
+</ul>
+
+<h2 id="features">Features</h2>
+
+<ul>
+<li>TO DO</li>
+</ul>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://minhkma.github.io/tags/zabbix/">zabbix</a>
+
+  <a class="tag tag--primary tag--small" href="https://minhkma.github.io/tags/openstack/">openstack</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/" data-tooltip="Exchanges trong RabbitMQ">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/dns-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-ra-sao/" data-tooltip="DNS hoạt động ra sao?">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
       
-        Các loại Exchanges trong RabbitMQ
-      
-      <p>
-        <a href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/" class="postShorten-excerpt_link link">Continue reading</a>
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
         
-      </p>
-    </div>
-  </div>
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/%29">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
   
-    <a href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="https://minhkma.github.io/img/RabbitMQ.png"/>
-      </div>
-    </a>
-  
-</article>
+</div>
 
             
+              
+                <div id="disqus_thread">
+  
+  <script id="disqus_thread" src="//https-minhkma-github-io-1.disqus.com/count.js" async></script>
+</div>
+              
             
-
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 Minh Nguyen Van. All Rights Reserved
@@ -271,6 +445,90 @@
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/exchanges-trong-rabbitmq/" data-tooltip="Exchanges trong RabbitMQ">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://minhkma.github.io/2018/10/dns-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-ra-sao/" data-tooltip="DNS hoạt động ra sao?">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/%29">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/%29">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/MinhKMA%25!%28EXTRA%20string=https%3A%2F%2Fminhkma.github.io%2F2018%2F10%2Fwrite-your-own-check-to-monitor-resources-in-openstack%2F%29">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/minhkma%25!%28EXTRA%20string=https%3A%2F%2Fminhkma.github.io%2F2018%2F10%2Fwrite-your-own-check-to-monitor-resources-in-openstack%2F%29">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -467,6 +725,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/minhkma.github.io\/2018\/10\/write-your-own-check-to-monitor-resources-in-openstack\/';
+          
+            this.page.identifier = '\/2018\/10\/write-your-own-check-to-monitor-resources-in-openstack\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'minhkma';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 

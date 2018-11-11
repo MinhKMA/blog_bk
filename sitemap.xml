@@ -18,6 +18,11 @@
   </url>
   
   <url>
+    <loc>https://minhkma.github.io/2018/10/write-your-own-check-to-monitor-resources-in-openstack/</loc>
+    <lastmod>2018-10-11T20:35:31+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://minhkma.github.io/2018/10/dns-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-ra-sao/</loc>
     <lastmod>2018-10-02T21:29:33+07:00</lastmod>
   </url>
@@ -64,8 +69,20 @@
   </url>
   
   <url>
+    <loc>https://minhkma.github.io/tags/openstack/</loc>
+    <lastmod>2018-10-11T20:35:31+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://minhkma.github.io/tags/plugin/</loc>
     <lastmod>2018-10-21T21:59:48+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/categories/plugin/</loc>
+    <lastmod>2018-10-11T20:35:31+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -90,6 +107,12 @@
   <url>
     <loc>https://minhkma.github.io/tags/</loc>
     <lastmod>2018-10-02T21:29:33+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://minhkma.github.io/tags/zabbix/</loc>
+    <lastmod>2018-10-11T20:35:31+07:00</lastmod>
     <priority>0</priority>
   </url>
   
